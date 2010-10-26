@@ -25,6 +25,22 @@ if(isset($_SESSION['username']))
 <script language="JavaScript" type="text/javascript" src="picker.js"></script>
 <link rel="stylesheet" type="text/css" href="calendar/calendar-win2k-cold-1.css">
 <![EndIf]-->
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, 'width=800,height=500,scrollbars=yes');
+return false;
+}
+//-->
+</SCRIPT>
+
 		<script type="text/javascript">
             $(function() {
 
@@ -605,12 +621,12 @@ $(document).ready(function(){
                 <div>
                 <b style="font-size:14px; color:#900">Reports</b><br /><br />
                 <ul>
-                    <li><a href="Reports/CustomView1rpt.php">No of ppl taking a particular test Test wise</a></li>
-                    <li><a href="Reports/Studentwisesmry.php">Studentwise Tests taken</a></li>
-                    <li><a href="">Score by test</a></li>
+                    <li><a href="Reports/Testc_Countrpt.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">No of ppl taking a particular test Test wise</a></li>
+                    <li><a href="Reports/Studentwisesmry.php" onClick="return popup(this, 'Studentwise Tests taken')">Studentwise Tests taken</a></li>
+                    <li><a href="Reports/Score_by_testrpt.php" onClick="return popup(this, 'Score by test')">Score by test</a></li>
                     <li><a href="">No of attempts per test</a></li>
                     <li><a href="">Avg score</a></li>
-                </ul>
+                </ul>               
                 </div>
 
                 

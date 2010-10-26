@@ -207,6 +207,8 @@
 </menu>
 <menu id="17"><phrase id="menutext" value="Studentwise"/>
 </menu>
+<menu id="18"><phrase id="menutext" value="Score by test"/>
+</menu>
 <table id="answers"><phrase id="tblcaption" value="answers"/>
 <field id="answers_id"><phrase id="fldcaption" value="answers id"/>
 </field>
@@ -345,18 +347,18 @@
 <field id="user_created"><phrase id="fldcaption" value="user created"/>
 </field>
 </table>
-<table id="customview1"><phrase id="tblcaption" value="Custom View 1"/>
-<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+<table id="testc_count"><phrase id="tblcaption" value="Custom View 1"/>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
 </field>
-<field id="count28distinct_class_std2estd_id29"><phrase id="fldcaption" value="Count (Distinct class std.std id)"/>
+<field id="no_of_students"><phrase id="fldcaption" value="No of Students"/>
 </field>
 </table>
 <table id="report1"><phrase id="tblcaption" value="Report 1"/>
 <chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
 </chart>
-<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
 </field>
-<field id="count28distinct_class_std2estd_id29"><phrase id="fldcaption" value="Count (Distinct class std.std id)"/>
+<field id="no_of_students"><phrase id="fldcaption" value="No of Students"/>
 </field>
 </table>
 <table id="studentwise_tests_taken"><phrase id="tblcaption" value="Studentwise Tests taken"/>
@@ -389,6 +391,16 @@
 <field id="attended_date"><phrase id="fldcaption" value="attended date"/>
 </field>
 <field id="attended_time"><phrase id="fldcaption" value="attended time"/>
+</field>
+</table>
+<table id="score_by_test"><phrase id="tblcaption" value="Score by test"/>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
 </field>
 </table>
 </project>
