@@ -138,13 +138,14 @@ $(document).ready(function(){
                 <li><a href="#students" id="tab5"><span>Students</span></a></li>                                
                 <li><a href="#questions" id="tab6"><span>Questions</span></a></li>
                 <li><a href="#generate" id="tab7"><span>Generate Paper</span></a></li>
-                <li><a href="#scheduler" id="tab8"><span>Exam Scheduler</span></a></li>
+                <li><a href="#scheduler" id="tab8"><span>Reports</span></a></li>
                 <?php $sql1="select * from users where username='".$_SESSION['username']."'";
 			$result1=mysql_query($sql1);
 			$row1=mysql_fetch_array($result1);
 			if($row1['users_id']=='1') { ?>
                 <li><a href="#verification" id="tab4"><span>Students Non Verified</span></a></li>	
 			<?php }	 ?>
+            <li><a href="#reports" id="tab9"><span>Reports</span></a></li>
             </ul>
             <div id="profile">
              <script type="text/javascript">
@@ -595,6 +596,25 @@ $(document).ready(function(){
 
                 
 				<!--end manage verification-->
+            </div>
+            
+             <div id="reports">
+            
+			<!--start reports-->
+               
+                <div>
+                <b style="font-size:14px; color:#900">Reports</b><br /><br />
+                <ul>
+                    <li><a href="">No of ppl taking a particular test Test wise</a></li>
+                    <li><a href="">Studentwise Tests taken</a></li>
+                    <li><a href="">Score by test</a></li>
+                    <li><a href="">No of attempts per test</a></li>
+                    <li><a href="">Avg score</a></li>
+                </ul>
+                </div>
+
+                
+				<!--end reports-->
             </div>
             
         </div>
