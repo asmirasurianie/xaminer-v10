@@ -209,6 +209,14 @@
 </menu>
 <menu id="18"><phrase id="menutext" value="Score by test"/>
 </menu>
+<menu id="19"><phrase id="menutext" value="Student wise"/>
+</menu>
+<menu id="20"><phrase id="menutext" value="Score Test"/>
+</menu>
+<menu id="21"><phrase id="menutext" value="Custom View 2"/>
+</menu>
+<menu id="22"><phrase id="menutext" value="Crosstab 1"/>
+</menu>
 <table id="answers"><phrase id="tblcaption" value="answers"/>
 <field id="answers_id"><phrase id="fldcaption" value="answers id"/>
 </field>
@@ -401,6 +409,50 @@
 <field id="paper_name"><phrase id="fldcaption" value="paper name"/>
 </field>
 <field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
+</field>
+</table>
+<table id="student_wise"><phrase id="tblcaption" value="Student wise"/>
+<field id="first_name"><phrase id="fldcaption" value="First Name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
+</field>
+<field id="roll_no"><phrase id="fldcaption" value="Roll No"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
+</field>
+<field id="attended_date"><phrase id="fldcaption" value="Attended Date"/>
+</field>
+<field id="attended_time"><phrase id="fldcaption" value="Attended Time"/>
+</field>
+</table>
+<table id="score_test"><phrase id="tblcaption" value="Score Test"/>
+<field id="first_name"><phrase id="fldcaption" value="First Name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
+</field>
+</table>
+<table id="customview2"><phrase id="tblcaption" value="Custom View 2"/>
+<field id="first_name"><phrase id="fldcaption" value="First Name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+<field id="no_of_attempts"><phrase id="fldcaption" value="No Of Attempts"/>
+</field>
+</table>
+<table id="crosstab1"><phrase id="tblcaption" value="Crosstab 1"/>
+<field id="first_name"><phrase id="fldcaption" value="First Name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
 </field>
 </table>
 </project>

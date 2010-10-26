@@ -154,7 +154,7 @@ $(document).ready(function(){
                 <li><a href="#students" id="tab5"><span>Students</span></a></li>                                
                 <li><a href="#questions" id="tab6"><span>Questions</span></a></li>
                 <li><a href="#generate" id="tab7"><span>Generate Paper</span></a></li>
-                <li><a href="#scheduler" id="tab8"><span>Reports</span></a></li>
+                <li><a href="#scheduler" id="tab8"><span>Scheduler</span></a></li>
                 <?php $sql1="select * from users where username='".$_SESSION['username']."'";
 			$result1=mysql_query($sql1);
 			$row1=mysql_fetch_array($result1);
@@ -622,9 +622,9 @@ $(document).ready(function(){
                 <b style="font-size:14px; color:#900">Reports</b><br /><br />
                 <ul>
                     <li><a href="Reports/Testc_Countrpt.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">No of ppl taking a particular test Test wise</a></li>
-                    <li><a href="Reports/Studentwisesmry.php" onClick="return popup(this, 'Studentwise Tests taken')">Studentwise Tests taken</a></li>
-                    <li><a href="Reports/Score_by_testrpt.php" onClick="return popup(this, 'Score by test')">Score by test</a></li>
-                    <li><a href="">No of attempts per test</a></li>
+                    <li><a href="Reports/Student_wiserpt.php" onClick="return popup(this, 'Studentwise Tests taken')">Studentwise Tests taken</a></li>
+                    <li><a href="Reports/Score_Testrpt.php" onClick="return popup(this, 'Score by test')">Score by test</a></li>
+                    <li><a href="Reports/CustomView2rpt.php" onClick="return popup(this, 'No of attempts per test')">No of attempts per test</a></li>
                     <li><a href="">Avg score</a></li>
                 </ul>               
                 </div>
