@@ -605,8 +605,8 @@ $(document).ready(function(){
                 <div>
                 <b style="font-size:14px; color:#900">Reports</b><br /><br />
                 <ul>
-                    <li><a href="">No of ppl taking a particular test Test wise</a></li>
-                    <li><a href="">Studentwise Tests taken</a></li>
+                    <li><a href="Reports/CustomView1rpt.php">No of ppl taking a particular test Test wise</a></li>
+                    <li><a href="Reports/Studentwisesmry.php">Studentwise Tests taken</a></li>
                     <li><a href="">Score by test</a></li>
                     <li><a href="">No of attempts per test</a></li>
                     <li><a href="">Avg score</a></li>
