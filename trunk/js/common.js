@@ -539,7 +539,7 @@ function getquestion(value)
 							   var datas="count="+d+"&size="+c+"&answer="+ans;
 							    $('#optionval input[type="text"]').attr('disabled','disabled');
 							   $('#optionval input[type="radio"]').attr('disabled','disabled');
-							   alert(datas);
+							   //alert(datas);
 							 	       $.ajax(
 												   {
 													 url:'addoption_process.php',
@@ -1484,8 +1484,9 @@ function submitquescheck12()
 	var d=$('#theQuestion').val();
 	for(var j=0;j<=d;j++)
 		    {
-				var q1=$('#question'+j).val();
-				//alert(q1);
+				var q1=$('question'+j).val();
+				
+				alert(q1);
 				var m1=$('#marks'+j).val();
 				var count=$('#theValue'+j).val();
 				
