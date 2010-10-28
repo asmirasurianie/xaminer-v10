@@ -671,7 +671,7 @@ function getquestion(value)
 										 dataType : 'json',
 										 success:function(xhr)
 										   {
-											  alert(xhr);
+											  //alert(xhr);
 											
 											   //alert(json);
 											//$('#loading1').load("addoption.php");		
@@ -1444,7 +1444,7 @@ function addoption1(n1)
   var newdiv1 = document.createElement('div');
   //alert(num);
   var divIdName = 'quesopt'+n1+num;
-  alert('opt'+n1+''+num);
+  //alert('opt'+n1+''+num);
   newdiv1.setAttribute('id',divIdName);
   newdiv1.innerHTML = '<div id="resultdisplay'+n1+'"></div><input type="text" name="optionq'+n1+''+num+'" id="optionq'+n1+''+num+'" class="option"/>&nbsp;&nbsp;<input type="hidden" value="'+num+'" name="addoptionq'+n1+'" id="addoptionq'+n1+'"/>&nbsp;&nbsp;<input type="radio" id="optionr'+n1+''+num+'" name="optionr'+n1+'" class="optionr"  onclick="alertsay1('+n1+','+num+');" /><input type="file" name="ofile'+n1+''+num+'" id="ofile'+n1+''+num+'"/><a href="javascript:openNewEditor(\'optionq'+n1+''+num+'\', \'plain\', \'opt'+n1+''+num+'\')">Launch Equation Editor</a><a href="#" onclick=\'removeme("'+n1+'","'+divIdName+'");\'><img src="images/but_delete.gif" border="0"/></a><div id="answerid'+n1+'"></div><div id="opt'+n1+''+num+'"></div>';
   //prompt("", newdiv1.innerHTML);
