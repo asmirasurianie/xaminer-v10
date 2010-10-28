@@ -1486,7 +1486,7 @@ function submitquescheck12()
 		    {
 				var q1=$('question'+j).val();
 				
-				alert(q1);
+				//alert(q1);
 				var m1=$('#marks'+j).val();
 				var count=$('#theValue'+j).val();
 				
