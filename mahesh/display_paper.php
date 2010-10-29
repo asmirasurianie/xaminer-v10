@@ -2,6 +2,8 @@
 <?php
   session_start(); 
   include('../includes/connect.php');
+  //include('js/common.js');
+  
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,8 +25,27 @@
 			});										
 		</script>
 
+
+ <script type="text/javascript">
+var b=0
+var y
+function startCount1()
+{
+    document.getElementById('Text1').value=b
+    b=b+1
+    y=setTimeout("startCount1()",1000);
+}
+
+function stopCount1()
+{
+    clearTimeout(y)
+}
+</script>
+
+
+
 </head>
-<body>
+<body onLoad="javascript:startCount1();">
 <div id="header">
 			<TABLE width="100%" height="70%" border="0">				
                 <TR>
@@ -41,6 +62,7 @@
 			</TABLE>
         </div>  
 <div style="width:900px;margin-left:40px;">
+
 
 <form name="answers" action="exams_process.php" method="post">
 	<?php 			
@@ -138,10 +160,11 @@ $row_count=mysql_num_rows($sql);
 						echo '</table></td></tr>';
 						$i++;
 					}
-				echo '<tr><td><div style="text-align:right;"><input type="hidden" value="'.$row_count.'" name="count" id="count"/><input type="hidden" value="'.$paper_id.'" name="paper_id" id="paper_id"/><input type="hidden" value="'.$attended_time.'" name="attended_time" id="attended_time"/><input type="submit" value="submit" name="submit" /></div></td></tr>';
+				echo '<tr><td><div style="text-align:right;"><input type="hidden" value="'.$row_count.'" name="count" id="count"/><input type="hidden" value="'.$paper_id.'" name="paper_id" id="paper_id"/><input type="hidden" value="'.$attended_time.'" name="attended_time" id="attended_time"/><input type="submit" value="submit" name="submit" onClick="stopCount1();" /></div></td></tr>';
 				} 
 				} //else end
 	}
+	echo "<input type='text' name='Text1' id='Text1'>";
 	
 	?>
 	<script>
@@ -153,4 +176,5 @@ $row_count=mysql_num_rows($sql);
 
 </div>
 	</body>
+
 </html>
