@@ -25,9 +25,11 @@
         </div>  
 <div style="width:900px;">
 <?php
+//echo $_POST['Text1'];
+
 $date=date('d-n-Y');
 $attended_time=$_POST['attended_time'];
-
+$tt=$_POST['Text1'];
 $paper_id= $_POST['paper_id'];
 
 $count=$_POST['count'];
@@ -60,7 +62,7 @@ $result1=mysql_query($sql1);
 		  }	
 	
 	
-	$sql2="INSERT INTO class_std(`std_id`,`paper_id`,`totalmarks`,`attended_date`,`attended_time`)VALUES('".$_SESSION['student_id']."','$paper_id','$totalmarks','$date','$attended_time')";
+	$sql2="INSERT INTO class_std(`std_id`,`paper_id`,`totalmarks`,`attended_date`,`attended_time`,`total_time(in seconds)`)VALUES('".$_SESSION['student_id']."','$paper_id','$totalmarks','$date','$attended_time','$tt')";
 
 	$result2=mysql_query($sql2);
 	
@@ -84,6 +86,7 @@ $result1=mysql_query($sql1);
 		header('Location:index.php#attendschedule');
 		
 	}
+	
 ?>
 </div>
 </body>
