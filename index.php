@@ -621,10 +621,12 @@ $(document).ready(function(){
                 <div>
                 <b style="font-size:14px; color:#900">Reports</b><br /><br />
                 <ul>
-                    <li><a href="reports/Report1smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">No of ppl taking a particular test Test wise</a></li>
+                	<li><a href="reports/Report1smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">Students </a></li>
+                    <li><a href="reports/Report7smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">Yearly Exams Scheduled</a></li>
+                    <!--<li><a href="reports/Report1smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">No of ppl taking a particular test Test wise</a></li>
                     <li><a href="reports/Report2smry.php" onClick="return popup(this, 'Studentwise Tests taken')">Studentwise Tests taken</a></li>
                     <li><a href="reports/Report3smry.php" onClick="return popup(this, 'Score by test')">Score by test</a></li>
-                    <li><a href="reports/Report4smry.php" onClick="return popup(this, 'No of attempts per test')">No of attempts per test</a></li>
+                    <li><a href="reports/Report4smry.php" onClick="return popup(this, 'No of attempts per test')">No of attempts per test</a></li>-->
                     <!--<li><a href="">Avg score</a></li>-->
                 </ul>               
                 </div>
