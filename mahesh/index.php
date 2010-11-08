@@ -207,7 +207,7 @@ echo '</table>';
 			<?php
 			$data = array();
 			$tableSize = 300;
-			$chartTitle1 = 'Exam Dates / Time';
+			$chartTitle1 = 'Exam Dates / Time - Paper Name';
 			$chartTitle2 = 'Marks';
 			require_once('chart.php');
 			session_start();
@@ -221,7 +221,7 @@ echo '</table>';
 			$i='0';
 			while($row= mysql_fetch_array($sql))
 			{
-			$data[$i]['title'] = $row['attended_date'].'&nbsp;'.$row['attended_time'];
+			$data[$i]['title'] = $row['attended_date'].'&nbsp;'.$row['attended_time'].'&nbsp; - '.$row['paper_name'];
 			$data[$i]['value'] = $row['totalmarks'].'/'.$row['outof'];
 			$i++;
 			}

@@ -623,6 +623,9 @@ $(document).ready(function(){
                 <ul>
                 	<li><a href="reports/Report1smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">Students </a></li>
                     <li><a href="reports/Report7smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">Yearly Exams Scheduled</a></li>
+                    <li><a href="reports/Report10smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">Time Taken</a></li>
+                    <li><a href="reports/Report17smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">No of students passed / failed</a></li>
+                    <li><a href="reports/Report18smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">No of students attended exam</a></li>
                     <!--<li><a href="reports/Report1smry.php" onClick="return popup(this, 'No of ppl taking a particular test Test wise')">No of ppl taking a particular test Test wise</a></li>
                     <li><a href="reports/Report2smry.php" onClick="return popup(this, 'Studentwise Tests taken')">Studentwise Tests taken</a></li>
                     <li><a href="reports/Report3smry.php" onClick="return popup(this, 'Score by test')">Score by test</a></li>

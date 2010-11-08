@@ -60,11 +60,26 @@ $result1=mysql_query($sql1);
 			
 						
 		  }	
+		  		  
+		  $query = mysql_query("select outof from papers where paper_id=".$paper_id);
+		  while($queryrow=mysql_fetch_array($query))
+				  {					
+					$passing= round($queryrow[0]/4);
+										
+					if($totalmarks < $passing )
+					{
+						$grade= "F";
+					}
+					else {
+						$grade= "P";
+					}
+				  }
 	
 	
-	$sql2="INSERT INTO class_std(`std_id`,`paper_id`,`totalmarks`,`attended_date`,`attended_time`,`total_time(in seconds)`)VALUES('".$_SESSION['student_id']."','$paper_id','$totalmarks','$date','$attended_time','$tt')";
+	$sql2="INSERT INTO class_std(`std_id`,`paper_id`,`totalmarks`,`attended_date`,`attended_time`,`total_time(in seconds)`,`grade`)VALUES('".$_SESSION['student_id']."','$paper_id','$totalmarks','$date','$attended_time','$tt','$grade')";
 
 	$result2=mysql_query($sql2);
+	
 	
 	$sql4 =mysql_query("Select * from students where std_id=".$_SESSION['student_id']);
 	$re4=mysql_fetch_array($sql4);
