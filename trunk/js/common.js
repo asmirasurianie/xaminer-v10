@@ -1,11 +1,44 @@
-//var $ = jQuery.noConflict();	
+//var $ = jQuery.noConflict();	 
+function reloadMCE(){
+tinyMCE.init({
+		// General options
+		mode : "textareas",
+		theme : "advanced",
+		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+
+		// Theme options
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : true,
+
+		// Example content CSS (should be your site CSS)
+		content_css : "css/content.css",
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "lists/template_list.js",
+		external_link_list_url : "lists/link_list.js",
+		external_image_list_url : "lists/image_list.js",
+		media_external_list_url : "lists/media_list.js",
+
+		// Replace values for the template plugin
+		template_replace_values : {
+			username : "Some User",
+			staffid : "991234"
+		}
+	});
+}
 
  function submitusers()
  {
    
     $("#addusers").click(function()
 				          { 
-							 $('.error').hide();
+							  $('.error').hide();
 							 var d1=$('#fname').val();
 							 var d2=$('#lname').val();
 							 var d3=$('#email').val();
@@ -298,24 +331,20 @@
 {
   var ni = document.getElementById('myDiv');
   var numi = document.getElementById('theValue0');
-  var num =(document.getElementById('theValue0').value -1)+ 2;
+  var num = (document.getElementById('theValue0').value -1)+ 2;
   numi.value = num;
   var newdiv = document.createElement('div');
   var divIdName = 'my'+num+'Div';
   newdiv.setAttribute('id',divIdName);
   newdiv.innerHTML = '<div id="optionfor0"><div id="resultdisplay0"></div><input type="text" name="optionq0'+num+'" id="optionq0'+num+'" class="option"/>&nbsp;&nbsp;<input type="hidden" value="'+num+'" name="addoptionq0" id="addoptionq0"/>&nbsp;&nbsp;<input type="radio" id="optionr0'+num+'" name="optionr" class="optionr0" onclick=\"alertsay11('+num+');\" /><input type="file" name="ofile0'+num+'" id="ofile0'+num+'"/><a href="javascript:openNewEditor(\'optionq0'+num+'\', \'plain\',\'opt'+num+'\')">Launch Equation Editor</a><a href="#" onclick=\'removeoption("'+divIdName+'");\'><img src="images/but_delete.gif" border="0"/></a><br/> <br/><div id="answerid"></div></div><div id="opt'+num+'"></div>';
-  
   ni.appendChild(newdiv);
   //num++;
   
 }
-
-function removeoption(id) 
+function removeElement() 
  {
-	 
-   var d=document.getElementById('myDiv');
-   var olddiv = document.getElementById(id);
-   d.removeChild(olddiv);
+   var d=document.getElementById('divIdName');
+   removeChild(d);
  }
  
 function getquestion(value)
@@ -539,7 +568,7 @@ function getquestion(value)
 							   var datas="count="+d+"&size="+c+"&answer="+ans;
 							    $('#optionval input[type="text"]').attr('disabled','disabled');
 							   $('#optionval input[type="radio"]').attr('disabled','disabled');
-							   //alert(datas);
+							   alert(datas);
 							 	       $.ajax(
 												   {
 													 url:'addoption_process.php',
@@ -671,7 +700,7 @@ function getquestion(value)
 										 dataType : 'json',
 										 success:function(xhr)
 										   {
-											  //alert(xhr);
+											  alert(xhr);
 											
 											   //alert(json);
 											//$('#loading1').load("addoption.php");		
@@ -711,8 +740,7 @@ function getquestion(value)
 							 //$('#scategory').attr('disabled','disabled');
 							 //$('#marks').attr('disabled','disabled');
 							  $.ajax(
-
-{
+									 {
 										 url : 'addcategories_process.php',
 										 type:'POST',
 										 data:dataval,
@@ -1223,7 +1251,7 @@ function checkshedular()
 
 function checkquestion()
 {
-	/*var d1=$('#question"').val();
+	var d1=$('#question"').val();
 	var d2=$('#sclass').val();
 	var d3=$('#scategory').val();
 	var d4=$('#marks').val();
@@ -1304,7 +1332,7 @@ function checkquestion()
 	   else
 	   {
 		   $('#r4').html(''); 
-	   }*/
+	   }
 }
 
 function alertsay()
@@ -1374,55 +1402,18 @@ function recordClass(frm){
 
 	}
  
-function addquestion() 
+function addquestion()
 {
-	
- var ni = document.getElementById('myQues');
+  var ni = document.getElementById('myQues');
   var numi = document.getElementById('theQuestion');
   var num = (document.getElementById('theQuestion').value -1)+ 2;
   numi.value = num;
   var newdiv = document.createElement('div');
-  var divIdName = 'quesDiv'+num;
+  var divIdName = 'my'+num+'Div';
   newdiv.setAttribute('id',divIdName);
-  newdiv.innerHTML = '<fieldset><table border="0" width="100%"><tr><td colspan="2"><a id="deletequestion'+num+'" href="#" onclick=\'removeQuestion("'+divIdName+'");\'><img align="right" src="images/but_delete.gif" border="0"/></a></td></tr><tr><td colspan="2"><table width="100%" border="1"> <tr> <td width="50%"><textarea name="question'+num+'" id="question'+num+'" rows="20" cols="50"></textarea></td> <td align="center"><a href="javascript:openNewEditor(\'question'+num+'\')">Launch Equation Editor</a><br/> <br/> </td> </tr> </table><div id="rq'+num+'"></div></td></tr><tr><td>Marks&nbsp;:&nbsp;<input type="text" name="marks'+num+'" id="marks'+num+'"/></td><td><div id="rm'+num+'"></div></td></tr><tr><td><input type="hidden" value="0" id="theValue'+num+'"/><div id="myDiv'+num+'"></div><a href="javascript:addoption1('+num+');" >Add Options</a></td></tr><tr><td><input type="hidden" name="questionid" id="questionid" value="'+num+'"/></td></tr></table></fieldset>';
-  
-	reloadMCE();
-
+  newdiv.innerHTML = '<fieldset><table border="0" width="100%"><tr><td colspan="2"><a id="deletequestion'+num+'" href="#" onclick=\'removeQuestion("'+divIdName+'");\'><img align="right" src="images/but_delete.gif" border="0"/></a></td></tr><tr><td colspan="2"><table width="100%" border="1"> <tr> <td width="50%"><textarea name="question'+num+'" id="question'+num+'" rows="20" cols="50"></textarea></td> <td align="center"><a href="javascript:openNewEditor(\'question'+num+'\')">Launch Equation Editor</a><br/> <br/> </td> </tr> </table><div id="rq'+num+'"></div></td></tr><tr><td>Marks&nbsp;:&nbsp;<input type="text" name="marks'+num+'" id="marks'+num+'"/></td><td><div id="rm'+num+'"></div></td></tr><tr><td><input type="hidden" value="0" id="theValue'+num+'"/><div id="myDiv'+num+'"></div><a href="javascript:addoption1('+num+');">Add Options</a></td></tr><tr><td><input type="hidden" name="questionid" id="questionid" value="'+num+'"/></td></tr></table></fieldset>';
   ni.appendChild(newdiv);
-}
-
-function reloadMCE(){
-tinyMCE.init({
-		// General options
-		mode : "textareas",
-		theme : "advanced",
-		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
-
-		// Theme options
-		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
-		theme_advanced_toolbar_location : "top",
-		theme_advanced_toolbar_align : "left",
-		theme_advanced_statusbar_location : "bottom",
-		theme_advanced_resizing : true,
-
-		// Example content CSS (should be your site CSS)
-		content_css : "css/content.css",
-
-		// Drop lists for link/image/media/template dialogs
-		template_external_list_url : "lists/template_list.js",
-		external_link_list_url : "lists/link_list.js",
-		external_image_list_url : "lists/image_list.js",
-		media_external_list_url : "lists/media_list.js",
-
-		// Replace values for the template plugin
-		template_replace_values : {
-			username : "Some User",
-			staffid : "991234"
-		}
-	});
+  //reloadMCE();
 }
 
 function removeQuestion(id)
@@ -1474,25 +1465,27 @@ function alertsay11(n2)
 	document.getElementById('answerid').innerHTML='<input type="hidden" name="answerid0" value="'+n2+'"/>'; 
 }
 
-
-function submitquescheck12()
+function submitquescheck()
 {
+	
 	var d1=$('#sclass').val();
 	//alert(d1);
 	var d2=$('#scategory').val();
 	//alert(d2);
-	var d=$('#theQuestion').val();
+	var d=$('#theQuestion').val();	
+	// var q1=tinyMCE.get('#question0').getContent();
+	//alert(d1);
+	
 	for(var j=0;j<=d;j++)
-		    {
-				var q1=$('question'+j).val();
-				
-				//alert(q1);
-				var m1=$('#marks'+j).val();
+		    { 
+			
+	 var q1=tinyMCE.get('question'+j).getContent();
+	 //alert(q1);
+	 //var q1=$('#question'+j).val();
+			var m1=$('#marks'+j).val();
 				var count=$('#theValue'+j).val();
-				
-                					
-					if(m1=="" && d1=="0" && d2=="0")
-						 {
+				if(m1=="" && d1=="0" && d2=="0")
+						{
 							// $('#rq'+j).html('Please enter the Questions');
 							 $('#rs1').html('Please enter the class');
 							 $('#rs2').html('Please enter the category');
@@ -1504,7 +1497,7 @@ function submitquescheck12()
 							 $('#rs1').html('');
 							 $('#rs2').html('');
 						 }
-					  if(q1=="" && m1=="")
+						 if(q1=="" && m1=="")
 						 {
 							 $('#rq'+j).html('Please enter the Questions');
 							 $('#rm'+j).html('Please enter the Marks');
@@ -1526,7 +1519,7 @@ function submitquescheck12()
 							 
 						}
 						
-					  if(m1=="")
+						if(m1=="")
 						{
 							$('#rm'+j).html('Please enter the Marks');
 							return false;
@@ -1536,25 +1529,25 @@ function submitquescheck12()
 							$('#rm'+j).html('');
 						}
 						
-               var radio_check=0;
-				  for(var s1=1;s1<=count;s1++)
-					 {
-						  
-					     //alert(s1+"hi"); 
-						var d8=$('#optionr'+j+''+s1);
-						if(d8.is(':checked'))
-						     {
-							   //alert("Yes");	 
-							   radio_check++;
-							 }
-						   else
-						     {
-								//alert("No"); 
-							 }
-													
-					 }
-					 	  
-					//alert(radio_check);
+						
+					var radio_check=0;
+					  for(var s1=1;s1<=count;s1++)
+						 {
+							  
+							 //alert(s1+"hi"); 
+							var d8=$('#optionr'+j+''+s1);
+							if(d8.is(':checked'))
+								 {
+								   //alert("Yes");	 
+								   radio_check++;
+								 }
+							   else
+								 {
+									//alert("No"); 
+								 }
+														
+						 }
+						 
 					if(radio_check>0)
 				     {
 						
@@ -1601,18 +1594,10 @@ function submitquescheck12()
 									   
 							  }
 							  
-					
-				  
+						 
+						 
 			}
-	  
-
-		
-		 
-	
 }
-
-
-
 
 function recordpaper(frm){
 	
@@ -1673,3 +1658,4 @@ function cancelschdular()
 	 $('#paper').hide();
 	 location.reload();
 }
+

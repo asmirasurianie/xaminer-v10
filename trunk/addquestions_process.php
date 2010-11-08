@@ -15,7 +15,7 @@
 		 $result1=mysql_query($query1);
 		 $result2=mysql_fetch_row($result1);
 		 $_SESSION['question_id']=$result2['0'];
-		 echo $_SESSION['question_id'];
+		 //echo $_SESSION['question_id'];
 	     //header('Location:addquestions.php');
 		 
 	   }

@@ -2,26 +2,29 @@
  include('includes/connect.php');
  $class=$_POST['sclass'];
  $category=$_POST['scategory'];
- //adding question here
+ //adding question here 
   if(!isset($_POST['questionid']))
-    {
+    {		
 	  $count=0;
 	}
   else
    {
-     $count=$_POST['questionid'];
+     $count=$_POST['questionid'];	  
    }
  
-   	
+   	echo $count;
     //this loop for adding the questions here
 	  for($i=0;$i<=$count;$i++)
 	    {
+			
+			//$try=tinyMCE.get('question0').getContent();
 		  $ques=$_POST["question".$i.""];
 		  $mark=$_POST["marks".$i.""];
 		  $toption=$_POST["addoptionq".$i.""];
 		  $id=$_POST["answerid".$i.""];
 		  $file=$_FILES["file".$i.""]["name"];
-		        if(!$file)
+		  echo 'q'.$_POST["question0"];		
+		     /*   if(!$file)
 		         {
 			      $que_path=" ";
 			     }
@@ -84,7 +87,7 @@
 									}	
 						       //header('Location:index.php#question');
 							}
-				   }	
+				   }	*/
 		}
 		
 	
