@@ -21,7 +21,7 @@
 		<script type="text/javascript" src="js/editor.js"></script>
 	</head>
 
-	<body onLoad="reloadMCE();">
+	<body>
   
 <?php
 	if(@$_REQUEST['er']==2) {
