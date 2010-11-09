@@ -25,9 +25,9 @@
 		  $toption=$_POST["addoptionq".$i.""];
 		  $id=$_POST["answerid".$i.""];
 		  $file=$_FILES["file".$i.""]["name"];
-		  echo 'go 1';
-		  echo $ques;			 
-		     /*   if(!$file)
+		  //echo 'go 1';
+		  //echo $ques;			 
+		        if(!$file)
 		         {
 			      $que_path=" ";
 			     }
@@ -90,7 +90,7 @@
 									}	
 						       //header('Location:index.php#question');
 							}
-				   }	*/
+				   }	
 		}
 
  ?>

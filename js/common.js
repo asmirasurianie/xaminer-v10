@@ -1403,7 +1403,7 @@ function recordClass(frm){
 	}
  
 function addquestion()
-{ reloadMCE();
+{ //reloadMCE();
   var ni = document.getElementById('myQues');
   var numi = document.getElementById('theQuestion');
   var num = (document.getElementById('theQuestion').value -1)+ 2;
