@@ -38,7 +38,7 @@ $row= mysql_fetch_array($sql);
                   <td valign="top" colspan="2" align="center">
 				   <input type="submit" value="UPDATE" name="update" id="update"/>
                    </td>
-				   <td><input type="button" name="cancel" value='CANCEL'  id="cancel"></td>
+				   <td><input type="button" name="cancel" value='CANCEL' id="cancel"></td>
                 </tr>
               </table>
             </form>

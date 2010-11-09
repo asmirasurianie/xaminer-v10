@@ -1096,16 +1096,16 @@ function checkstudents()
 function checkpaper()
 {
 	
-	var d1=$('#papername1').val();
-	var d2=$('#classname1').val();
-	var d3=$('#categoryname1').val();
-	var d4=$('#marks1').val();
+	var d1=$('#papername').val();
+	var d2=$('#categoryname').val();
+	var d3=$('#classname').val();
+	var d4=$('#marks').val();
 	
-	if(d1=="" && d2=="0" && d3=="0" && d4=="" )
+	if(d1=="" && d2=="0" && d3=="0" && d4=="")
 	{
 		$('#r1').html('Please enter paper name');
-		$('#r2').html('Please enter class name');
-		$('#r3').html('Please enter category name');
+		$('#r2').html('Please enter category name');
+		$('#r3').html('Please enter class name');
 		$('#r4').html('Please enter marks');
 		return false;
 	}	
@@ -1119,8 +1119,8 @@ function checkpaper()
 	}
 	if(d2=="0" && d3=="0" && d4=="")
 	{
-		$('#r2').html('Please enter class name');
-		$('#r3').html('Please enter category name');
+		$('#r2').html('Please enter category name');
+		$('#r3').html('Please enter class name');
 		$('#r4').html('Please enter marks');
 		return false;
 	}
@@ -1132,7 +1132,7 @@ function checkpaper()
   	}
 	if(d3=="0" && d4=="" )
 	{
-	    $('#r3').html('Please enter category name');
+	    $('#r3').html('Please enter class name');
 		$('#r4').html('Please enter marks');
 		return false;
 	}
@@ -1162,7 +1162,7 @@ function checkpaper()
 	}
 	if(d2=="0")
 	{
-	   $('#r2').html('Please enter class name');
+	   $('#r2').html('Please enter category name');
 	   return false;
 	}
 	else
@@ -1171,7 +1171,7 @@ function checkpaper()
 	}
 	if(d3=="0")
 	{
-	   $('#r3').html('Please enter category name');
+	   $('#r3').html('Please enter class name');
 	   return false;
 	}
 	else
@@ -1620,6 +1620,28 @@ function recordpaper(frm){
 	}
  
 
+ function recordClass(frm){
+	
+	var d = document.getElementById('marks');
+	d.innerHTML	=	'&nbsp;&nbsp;&nbsp;<img src="images/progress.gif">';
+	//d.innerHTML	=	'Loading...';
+	var file	=	'generate.php';
+	var myAjax = new Ajax.Request(file, 
+                                   {method: 'post', parameters: $(frm).serialize(), 
+                                   onSuccess: function(transport){ //alert(transport.responseText)
+										   	 if(transport.responseText){
+												d.innerHTML=transport.responseText;
+												//alert(transport.responseText);
+												$('AddsentItem').disabled=false; 
+											 }else{
+												 return false;
+											 }
+											 
+										 }
+										});
+
+	}
+
 function cancelme()
 {
 	$('#addquestionform').hide();
@@ -1637,6 +1659,7 @@ function cancelcategory()
 	$('#addcategoryform').hide();
 	location.reload();
 }
+
 function canceluser()
 {
 	 $('#adduserform').hide();
