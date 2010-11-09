@@ -21,7 +21,7 @@
 		<script type="text/javascript" src="js/editor.js"></script>
 	</head>
 
-	<body>
+	<body onLoad="reloadMCE();">
   
 <?php
 	if(@$_REQUEST['er']==2) {
@@ -132,7 +132,7 @@
 		<tr>
 			<td>
 				<input type="hidden" value="0" id="theQuestion"/>
-				<a href="javascript:addquestion();reloadMCE()">Add more questions</a> <!-- <a href="#" onclick="reloadMCE()">reload</a> -->
+				<a href="javascript:addquestion();">Add more questions</a> <!-- <a href="#" onclick="reloadMCE()">reload</a> -->
 			</td>
 			<td align="right">
 

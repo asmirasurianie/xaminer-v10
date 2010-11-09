@@ -1,3 +1,4 @@
+
 <?php
  include('includes/connect.php');
  $class=$_POST['sclass'];
@@ -12,18 +13,20 @@
      $count=$_POST['questionid'];	  
    }
  
-   	echo $count;
+   	//echo $count;
     //this loop for adding the questions here
 	  for($i=0;$i<=$count;$i++)
 	    {
 			
 			//$try=tinyMCE.get('question0').getContent();
+			echo "question".$i;
 		  $ques=$_POST["question".$i.""];
 		  $mark=$_POST["marks".$i.""];
 		  $toption=$_POST["addoptionq".$i.""];
 		  $id=$_POST["answerid".$i.""];
 		  $file=$_FILES["file".$i.""]["name"];
-		  echo 'q'.$_POST["question0"];		
+		  echo 'go 1';
+		  echo $ques;			 
 		     /*   if(!$file)
 		         {
 			      $que_path=" ";

@@ -9,15 +9,15 @@ ob_start();
 <?php
 
 // Global variable for table object
-$CustomView2 = NULL;
+$categories = NULL;
 
 //
-// Table class for CustomView2
+// Table class for categories
 //
-class crCustomView2 {
-	var $TableVar = 'CustomView2';
-	var $TableName = 'CustomView2';
-	var $TableType = 'CUSTOMVIEW';
+class crcategories {
+	var $TableVar = 'categories';
+	var $TableName = 'categories';
+	var $TableType = 'TABLE';
 	var $ShowCurrentFilter = EWRPT_SHOW_CURRENT_FILTER;
 	var $FilterPanelOption = EWRPT_FILTER_PANEL_OPTION;
 	var $CurrentOrder; // Current order
@@ -57,7 +57,8 @@ class crCustomView2 {
 	}
 
 //	var $SelectLimit = TRUE;
-	var $Total;
+	var $category_id;
+	var $category;
 	var $fields = array();
 	var $Export; // Export
 	var $ExportAll = FALSE;
@@ -80,16 +81,23 @@ class crCustomView2 {
 	//
 	// Table class constructor
 	//
-	function crCustomView2() {
+	function crcategories() {
 		global $ReportLanguage;
 
-		// Total
-		$this->Total = new crField('CustomView2', 'CustomView2', 'x_Total', 'Total', '(Select Count(*) * 100 / (Select Count(*) From students) As Score From class_std Group By class_std.paper_id)', 131, EWRPT_DATATYPE_NUMBER, -1);
-		$this->Total->FldDefaultErrMsg = $ReportLanguage->Phrase("IncorrectFloat");
-		$this->fields['Total'] =& $this->Total;
-		$this->Total->DateFilter = "";
-		$this->Total->SqlSelect = "";
-		$this->Total->SqlOrderBy = "";
+		// category_id
+		$this->category_id = new crField('categories', 'categories', 'x_category_id', 'category_id', '`category_id`', 3, EWRPT_DATATYPE_NUMBER, -1);
+		$this->category_id->FldDefaultErrMsg = $ReportLanguage->Phrase("IncorrectInteger");
+		$this->fields['category_id'] =& $this->category_id;
+		$this->category_id->DateFilter = "";
+		$this->category_id->SqlSelect = "";
+		$this->category_id->SqlOrderBy = "";
+
+		// category
+		$this->category = new crField('categories', 'categories', 'x_category', 'category', '`category`', 200, EWRPT_DATATYPE_STRING, -1);
+		$this->fields['category'] =& $this->category;
+		$this->category->DateFilter = "";
+		$this->category->SqlSelect = "";
+		$this->category->SqlOrderBy = "";
 	}
 
 	// Single column sort
@@ -138,15 +146,15 @@ class crCustomView2 {
 
 	// Table level SQL
 	function SqlFrom() { // From
-		return "";
+		return "`categories`";
 	}
 
 	function SqlSelect() { // Select
-		return "SELECT (Select Count(*) * 100 / (Select Count(*) From students) As Score From class_std Group By class_std.paper_id) As Total FROM " . $this->SqlFrom();
+		return "SELECT * FROM " . $this->SqlFrom();
 	}
 
 	function SqlWhere() { // Where
-		return "";
+		return ;
 	}
 
 	function SqlGroupBy() { // Group By
@@ -260,17 +268,17 @@ header("Pragma: no-cache"); // HTTP/1.0
 <?php
 
 // Create page object
-$CustomView2_rpt = new crCustomView2_rpt();
-$Page =& $CustomView2_rpt;
+$categories_rpt = new crcategories_rpt();
+$Page =& $categories_rpt;
 
 // Page init
-$CustomView2_rpt->Page_Init();
+$categories_rpt->Page_Init();
 
 // Page main
-$CustomView2_rpt->Page_Main();
+$categories_rpt->Page_Main();
 ?>
 <?php include "phprptinc/header.php"; ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 <script language="JavaScript" type="text/javascript">
 <!--
 
@@ -281,13 +289,13 @@ $CustomView2_rpt->Page_Main();
 
 </script>
 <?php } ?>
-<?php $CustomView2_rpt->ShowPageHeader(); ?>
+<?php $categories_rpt->ShowPageHeader(); ?>
 <?php if (EWRPT_DEBUG_ENABLED) echo ewrpt_DebugMsg(); ?>
-<?php $CustomView2_rpt->ShowMessage(); ?>
-<?php if ($CustomView2->Export == "" || $CustomView2->Export == "print" || $CustomView2->Export == "email") { ?>
+<?php $categories_rpt->ShowMessage(); ?>
+<?php if ($categories->Export == "" || $categories->Export == "print" || $categories->Export == "email") { ?>
 <script src="FusionChartsFree/JSClass/FusionCharts.js" type="text/javascript"></script>
 <?php } ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 <script src="phprptjs/popup.js" type="text/javascript"></script>
 <script src="phprptjs/ewrptpop.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -295,7 +303,7 @@ $CustomView2_rpt->Page_Main();
 // popup fields
 </script>
 <?php } ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 <!-- Table Container (Begin) -->
 <table id="ewContainer" cellspacing="0" cellpadding="0" border="0">
 <!-- Top Container (Begin) -->
@@ -303,14 +311,14 @@ $CustomView2_rpt->Page_Main();
 <!-- top slot -->
 <a name="top"></a>
 <?php } ?>
-<?php if ($CustomView2->Export == "" || $CustomView2->Export == "print" || $CustomView2->Export == "email") { ?>
+<?php if ($categories->Export == "" || $categories->Export == "print" || $categories->Export == "email") { ?>
 <?php } ?>
-<?php echo $CustomView2->TableCaption() ?>
-<?php if ($CustomView2->Export == "") { ?>
-&nbsp;&nbsp;<a href="<?php echo $CustomView2_rpt->ExportPrintUrl ?>"><?php echo $ReportLanguage->Phrase("PrinterFriendly") ?></a>
+<?php echo $categories->TableCaption() ?>
+<?php if ($categories->Export == "") { ?>
+&nbsp;&nbsp;<a href="<?php echo $categories_rpt->ExportPrintUrl ?>"><?php echo $ReportLanguage->Phrase("PrinterFriendly") ?></a>
 <?php } ?>
 <br /><br />
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 </div></td></tr>
 <!-- Top Container (End) -->
 <tr>
@@ -318,9 +326,9 @@ $CustomView2_rpt->Page_Main();
 	<td style="vertical-align: top;"><div id="ewLeft" class="phpreportmaker">
 	<!-- Left slot -->
 <?php } ?>
-<?php if ($CustomView2->Export == "" || $CustomView2->Export == "print" || $CustomView2->Export == "email") { ?>
+<?php if ($categories->Export == "" || $categories->Export == "print" || $categories->Export == "email") { ?>
 <?php } ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 	</div></td>
 	<!-- Left Container (End) -->
 	<!-- Center Container - Report (Begin) -->
@@ -331,24 +339,24 @@ $CustomView2_rpt->Page_Main();
 <div id="report_summary">
 <table class="ewGrid" cellspacing="0"><tr>
 	<td class="ewGridContent">
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 <div class="ewGridUpperPanel">
-<form action="CustomView2rpt.php" name="ewpagerform" id="ewpagerform" class="ewForm">
+<form action="categoriesrpt.php" name="ewpagerform" id="ewpagerform" class="ewForm">
 <table border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td style="white-space: nowrap;">
-<?php if (!isset($Pager)) $Pager = new crPrevNextPager($CustomView2_rpt->StartGrp, $CustomView2_rpt->DisplayGrps, $CustomView2_rpt->TotalGrps) ?>
+<?php if (!isset($Pager)) $Pager = new crPrevNextPager($categories_rpt->StartGrp, $categories_rpt->DisplayGrps, $categories_rpt->TotalGrps) ?>
 <?php if ($Pager->RecordCount > 0) { ?>
 	<table border="0" cellspacing="0" cellpadding="0"><tr><td><span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("Page") ?>&nbsp;</span></td>
 <!--first page button-->
 	<?php if ($Pager->FirstButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->FirstButton->Start ?>"><img src="phprptimages/first.gif" alt="<?php echo $ReportLanguage->Phrase("PagerFirst") ?>" width="16" height="16" border="0"></a></td>
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->FirstButton->Start ?>"><img src="phprptimages/first.gif" alt="<?php echo $ReportLanguage->Phrase("PagerFirst") ?>" width="16" height="16" border="0"></a></td>
 	<?php } else { ?>
 	<td><img src="phprptimages/firstdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerFirst") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
 <!--previous page button-->
 	<?php if ($Pager->PrevButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->PrevButton->Start ?>"><img src="phprptimages/prev.gif" alt="<?php echo $ReportLanguage->Phrase("PagerPrevious") ?>" width="16" height="16" border="0"></a></td>
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->PrevButton->Start ?>"><img src="phprptimages/prev.gif" alt="<?php echo $ReportLanguage->Phrase("PagerPrevious") ?>" width="16" height="16" border="0"></a></td>
 	<?php } else { ?>
 	<td><img src="phprptimages/prevdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerPrevious") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
@@ -356,13 +364,13 @@ $CustomView2_rpt->Page_Main();
 	<td><input type="text" name="pageno" id="pageno" value="<?php echo $Pager->CurrentPage ?>" size="4"></td>
 <!--next page button-->
 	<?php if ($Pager->NextButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->NextButton->Start ?>"><img src="phprptimages/next.gif" alt="<?php echo $ReportLanguage->Phrase("PagerNext") ?>" width="16" height="16" border="0"></a></td>	
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->NextButton->Start ?>"><img src="phprptimages/next.gif" alt="<?php echo $ReportLanguage->Phrase("PagerNext") ?>" width="16" height="16" border="0"></a></td>	
 	<?php } else { ?>
 	<td><img src="phprptimages/nextdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerNext") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
 <!--last page button-->
 	<?php if ($Pager->LastButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->LastButton->Start ?>"><img src="phprptimages/last.gif" alt="<?php echo $ReportLanguage->Phrase("PagerLast") ?>" width="16" height="16" border="0"></a></td>	
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->LastButton->Start ?>"><img src="phprptimages/last.gif" alt="<?php echo $ReportLanguage->Phrase("PagerLast") ?>" width="16" height="16" border="0"></a></td>	
 	<?php } else { ?>
 	<td><img src="phprptimages/lastdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerLast") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
@@ -373,26 +381,26 @@ $CustomView2_rpt->Page_Main();
 	<td>
 	<span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("Record") ?> <?php echo $Pager->FromIndex ?> <?php echo $ReportLanguage->Phrase("To") ?> <?php echo $Pager->ToIndex ?> <?php echo $ReportLanguage->Phrase("Of") ?> <?php echo $Pager->RecordCount ?></span>
 <?php } else { ?>
-	<?php if ($CustomView2_rpt->Filter == "0=101") { ?>
+	<?php if ($categories_rpt->Filter == "0=101") { ?>
 	<span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("EnterSearchCriteria") ?></span>
 	<?php } else { ?>
 	<span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("NoRecord") ?></span>
 	<?php } ?>
 <?php } ?>
 		</td>
-<?php if ($CustomView2_rpt->TotalGrps > 0) { ?>
+<?php if ($categories_rpt->TotalGrps > 0) { ?>
 		<td style="white-space: nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td align="right" style="vertical-align: top; white-space: nowrap;"><span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("RecordsPerPage"); ?>&nbsp;
 <select name="<?php echo EWRPT_TABLE_GROUP_PER_PAGE; ?>" onchange="this.form.submit();">
-<option value="1"<?php if ($CustomView2_rpt->DisplayGrps == 1) echo " selected=\"selected\"" ?>>1</option>
-<option value="2"<?php if ($CustomView2_rpt->DisplayGrps == 2) echo " selected=\"selected\"" ?>>2</option>
-<option value="3"<?php if ($CustomView2_rpt->DisplayGrps == 3) echo " selected=\"selected\"" ?>>3</option>
-<option value="4"<?php if ($CustomView2_rpt->DisplayGrps == 4) echo " selected=\"selected\"" ?>>4</option>
-<option value="5"<?php if ($CustomView2_rpt->DisplayGrps == 5) echo " selected=\"selected\"" ?>>5</option>
-<option value="10"<?php if ($CustomView2_rpt->DisplayGrps == 10) echo " selected=\"selected\"" ?>>10</option>
-<option value="20"<?php if ($CustomView2_rpt->DisplayGrps == 20) echo " selected=\"selected\"" ?>>20</option>
-<option value="50"<?php if ($CustomView2_rpt->DisplayGrps == 50) echo " selected=\"selected\"" ?>>50</option>
-<option value="ALL"<?php if ($CustomView2->getGroupPerPage() == -1) echo " selected=\"selected\"" ?>><?php echo $ReportLanguage->Phrase("AllRecords") ?></option>
+<option value="1"<?php if ($categories_rpt->DisplayGrps == 1) echo " selected=\"selected\"" ?>>1</option>
+<option value="2"<?php if ($categories_rpt->DisplayGrps == 2) echo " selected=\"selected\"" ?>>2</option>
+<option value="3"<?php if ($categories_rpt->DisplayGrps == 3) echo " selected=\"selected\"" ?>>3</option>
+<option value="4"<?php if ($categories_rpt->DisplayGrps == 4) echo " selected=\"selected\"" ?>>4</option>
+<option value="5"<?php if ($categories_rpt->DisplayGrps == 5) echo " selected=\"selected\"" ?>>5</option>
+<option value="10"<?php if ($categories_rpt->DisplayGrps == 10) echo " selected=\"selected\"" ?>>10</option>
+<option value="20"<?php if ($categories_rpt->DisplayGrps == 20) echo " selected=\"selected\"" ?>>20</option>
+<option value="50"<?php if ($categories_rpt->DisplayGrps == 50) echo " selected=\"selected\"" ?>>50</option>
+<option value="ALL"<?php if ($categories->getGroupPerPage() == -1) echo " selected=\"selected\"" ?>><?php echo $ReportLanguage->Phrase("AllRecords") ?></option>
 </select>
 		</span></td>
 <?php } ?>
@@ -407,39 +415,53 @@ $CustomView2_rpt->Page_Main();
 <?php
 
 // Set the last group to display if not export all
-if ($CustomView2->ExportAll && $CustomView2->Export <> "") {
-	$CustomView2_rpt->StopGrp = $CustomView2_rpt->TotalGrps;
+if ($categories->ExportAll && $categories->Export <> "") {
+	$categories_rpt->StopGrp = $categories_rpt->TotalGrps;
 } else {
-	$CustomView2_rpt->StopGrp = $CustomView2_rpt->StartGrp + $CustomView2_rpt->DisplayGrps - 1;
+	$categories_rpt->StopGrp = $categories_rpt->StartGrp + $categories_rpt->DisplayGrps - 1;
 }
 
 // Stop group <= total number of groups
-if (intval($CustomView2_rpt->StopGrp) > intval($CustomView2_rpt->TotalGrps))
-	$CustomView2_rpt->StopGrp = $CustomView2_rpt->TotalGrps;
-$CustomView2_rpt->RecCount = 0;
+if (intval($categories_rpt->StopGrp) > intval($categories_rpt->TotalGrps))
+	$categories_rpt->StopGrp = $categories_rpt->TotalGrps;
+$categories_rpt->RecCount = 0;
 
 // Get first row
-if ($CustomView2_rpt->TotalGrps > 0) {
-	$CustomView2_rpt->GetRow(1);
-	$CustomView2_rpt->GrpCount = 1;
+if ($categories_rpt->TotalGrps > 0) {
+	$categories_rpt->GetRow(1);
+	$categories_rpt->GrpCount = 1;
 }
-while (($rs && !$rs->EOF && $CustomView2_rpt->GrpCount <= $CustomView2_rpt->DisplayGrps) || $CustomView2_rpt->ShowFirstHeader) {
+while (($rs && !$rs->EOF && $categories_rpt->GrpCount <= $categories_rpt->DisplayGrps) || $categories_rpt->ShowFirstHeader) {
 
 	// Show header
-	if ($CustomView2_rpt->ShowFirstHeader) {
+	if ($categories_rpt->ShowFirstHeader) {
 ?>
 	<thead>
 	<tr>
 <td class="ewTableHeader">
-<?php if ($CustomView2->Export <> "") { ?>
-<?php echo $CustomView2->Total->FldCaption() ?>
+<?php if ($categories->Export <> "") { ?>
+<?php echo $categories->category_id->FldCaption() ?>
 <?php } else { ?>
 	<table cellspacing="0" class="ewTableHeaderBtn"><tr>
-<?php if ($CustomView2->SortUrl($CustomView2->Total) == "") { ?>
-		<td style="vertical-align: bottom;"><?php echo $CustomView2->Total->FldCaption() ?></td>
+<?php if ($categories->SortUrl($categories->category_id) == "") { ?>
+		<td style="vertical-align: bottom;"><?php echo $categories->category_id->FldCaption() ?></td>
 <?php } else { ?>
-		<td class="ewPointer" onmousedown="ewrpt_Sort(event,'<?php echo $CustomView2->SortUrl($CustomView2->Total) ?>',0);"><?php echo $CustomView2->Total->FldCaption() ?></td><td style="width: 10px;">
-		<?php if ($CustomView2->Total->getSort() == "ASC") { ?><img src="phprptimages/sortup.gif" width="10" height="9" border="0"><?php } elseif ($CustomView2->Total->getSort() == "DESC") { ?><img src="phprptimages/sortdown.gif" width="10" height="9" border="0"><?php } ?></td>
+		<td class="ewPointer" onmousedown="ewrpt_Sort(event,'<?php echo $categories->SortUrl($categories->category_id) ?>',0);"><?php echo $categories->category_id->FldCaption() ?></td><td style="width: 10px;">
+		<?php if ($categories->category_id->getSort() == "ASC") { ?><img src="phprptimages/sortup.gif" width="10" height="9" border="0"><?php } elseif ($categories->category_id->getSort() == "DESC") { ?><img src="phprptimages/sortdown.gif" width="10" height="9" border="0"><?php } ?></td>
+<?php } ?>
+	</tr></table>
+<?php } ?>
+</td>
+<td class="ewTableHeader">
+<?php if ($categories->Export <> "") { ?>
+<?php echo $categories->category->FldCaption() ?>
+<?php } else { ?>
+	<table cellspacing="0" class="ewTableHeaderBtn"><tr>
+<?php if ($categories->SortUrl($categories->category) == "") { ?>
+		<td style="vertical-align: bottom;"><?php echo $categories->category->FldCaption() ?></td>
+<?php } else { ?>
+		<td class="ewPointer" onmousedown="ewrpt_Sort(event,'<?php echo $categories->SortUrl($categories->category) ?>',0);"><?php echo $categories->category->FldCaption() ?></td><td style="width: 10px;">
+		<?php if ($categories->category->getSort() == "ASC") { ?><img src="phprptimages/sortup.gif" width="10" height="9" border="0"><?php } elseif ($categories->category->getSort() == "DESC") { ?><img src="phprptimages/sortdown.gif" width="10" height="9" border="0"><?php } ?></td>
 <?php } ?>
 	</tr></table>
 <?php } ?>
@@ -448,28 +470,31 @@ while (($rs && !$rs->EOF && $CustomView2_rpt->GrpCount <= $CustomView2_rpt->Disp
 	</thead>
 	<tbody>
 <?php
-		$CustomView2_rpt->ShowFirstHeader = FALSE;
+		$categories_rpt->ShowFirstHeader = FALSE;
 	}
-	$CustomView2_rpt->RecCount++;
+	$categories_rpt->RecCount++;
 
 		// Render detail row
-		$CustomView2->ResetCSS();
-		$CustomView2->RowType = EWRPT_ROWTYPE_DETAIL;
-		$CustomView2_rpt->RenderRow();
+		$categories->ResetCSS();
+		$categories->RowType = EWRPT_ROWTYPE_DETAIL;
+		$categories_rpt->RenderRow();
 ?>
-	<tr<?php echo $CustomView2->RowAttributes(); ?>>
-		<td<?php echo $CustomView2->Total->CellAttributes() ?>>
-<div<?php echo $CustomView2->Total->ViewAttributes(); ?>><?php echo $CustomView2->Total->ListViewValue(); ?></div>
+	<tr<?php echo $categories->RowAttributes(); ?>>
+		<td<?php echo $categories->category_id->CellAttributes() ?>>
+<div<?php echo $categories->category_id->ViewAttributes(); ?>><?php echo $categories->category_id->ListViewValue(); ?></div>
+</td>
+		<td<?php echo $categories->category->CellAttributes() ?>>
+<div<?php echo $categories->category->ViewAttributes(); ?>><?php echo $categories->category->ListViewValue(); ?></div>
 </td>
 	</tr>
 <?php
 
 		// Accumulate page summary
-		$CustomView2_rpt->AccumulateSummary();
+		$categories_rpt->AccumulateSummary();
 
 		// Get next record
-		$CustomView2_rpt->GetRow(2);
-	$CustomView2_rpt->GrpCount++;
+		$categories_rpt->GetRow(2);
+	$categories_rpt->GrpCount++;
 } // End while
 ?>
 	</tbody>
@@ -477,25 +502,25 @@ while (($rs && !$rs->EOF && $CustomView2_rpt->GrpCount <= $CustomView2_rpt->Disp
 	</tfoot>
 </table>
 </div>
-<?php if ($CustomView2_rpt->TotalGrps > 0) { ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories_rpt->TotalGrps > 0) { ?>
+<?php if ($categories->Export == "") { ?>
 <div class="ewGridLowerPanel">
-<form action="CustomView2rpt.php" name="ewpagerform" id="ewpagerform" class="ewForm">
+<form action="categoriesrpt.php" name="ewpagerform" id="ewpagerform" class="ewForm">
 <table border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td style="white-space: nowrap;">
-<?php if (!isset($Pager)) $Pager = new crPrevNextPager($CustomView2_rpt->StartGrp, $CustomView2_rpt->DisplayGrps, $CustomView2_rpt->TotalGrps) ?>
+<?php if (!isset($Pager)) $Pager = new crPrevNextPager($categories_rpt->StartGrp, $categories_rpt->DisplayGrps, $categories_rpt->TotalGrps) ?>
 <?php if ($Pager->RecordCount > 0) { ?>
 	<table border="0" cellspacing="0" cellpadding="0"><tr><td><span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("Page") ?>&nbsp;</span></td>
 <!--first page button-->
 	<?php if ($Pager->FirstButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->FirstButton->Start ?>"><img src="phprptimages/first.gif" alt="<?php echo $ReportLanguage->Phrase("PagerFirst") ?>" width="16" height="16" border="0"></a></td>
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->FirstButton->Start ?>"><img src="phprptimages/first.gif" alt="<?php echo $ReportLanguage->Phrase("PagerFirst") ?>" width="16" height="16" border="0"></a></td>
 	<?php } else { ?>
 	<td><img src="phprptimages/firstdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerFirst") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
 <!--previous page button-->
 	<?php if ($Pager->PrevButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->PrevButton->Start ?>"><img src="phprptimages/prev.gif" alt="<?php echo $ReportLanguage->Phrase("PagerPrevious") ?>" width="16" height="16" border="0"></a></td>
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->PrevButton->Start ?>"><img src="phprptimages/prev.gif" alt="<?php echo $ReportLanguage->Phrase("PagerPrevious") ?>" width="16" height="16" border="0"></a></td>
 	<?php } else { ?>
 	<td><img src="phprptimages/prevdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerPrevious") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
@@ -503,13 +528,13 @@ while (($rs && !$rs->EOF && $CustomView2_rpt->GrpCount <= $CustomView2_rpt->Disp
 	<td><input type="text" name="pageno" id="pageno" value="<?php echo $Pager->CurrentPage ?>" size="4"></td>
 <!--next page button-->
 	<?php if ($Pager->NextButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->NextButton->Start ?>"><img src="phprptimages/next.gif" alt="<?php echo $ReportLanguage->Phrase("PagerNext") ?>" width="16" height="16" border="0"></a></td>	
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->NextButton->Start ?>"><img src="phprptimages/next.gif" alt="<?php echo $ReportLanguage->Phrase("PagerNext") ?>" width="16" height="16" border="0"></a></td>	
 	<?php } else { ?>
 	<td><img src="phprptimages/nextdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerNext") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
 <!--last page button-->
 	<?php if ($Pager->LastButton->Enabled) { ?>
-	<td><a href="CustomView2rpt.php?start=<?php echo $Pager->LastButton->Start ?>"><img src="phprptimages/last.gif" alt="<?php echo $ReportLanguage->Phrase("PagerLast") ?>" width="16" height="16" border="0"></a></td>	
+	<td><a href="categoriesrpt.php?start=<?php echo $Pager->LastButton->Start ?>"><img src="phprptimages/last.gif" alt="<?php echo $ReportLanguage->Phrase("PagerLast") ?>" width="16" height="16" border="0"></a></td>	
 	<?php } else { ?>
 	<td><img src="phprptimages/lastdisab.gif" alt="<?php echo $ReportLanguage->Phrase("PagerLast") ?>" width="16" height="16" border="0"></td>
 	<?php } ?>
@@ -520,26 +545,26 @@ while (($rs && !$rs->EOF && $CustomView2_rpt->GrpCount <= $CustomView2_rpt->Disp
 	<td>
 	<span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("Record") ?> <?php echo $Pager->FromIndex ?> <?php echo $ReportLanguage->Phrase("To") ?> <?php echo $Pager->ToIndex ?> <?php echo $ReportLanguage->Phrase("Of") ?> <?php echo $Pager->RecordCount ?></span>
 <?php } else { ?>
-	<?php if ($CustomView2_rpt->Filter == "0=101") { ?>
+	<?php if ($categories_rpt->Filter == "0=101") { ?>
 	<span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("EnterSearchCriteria") ?></span>
 	<?php } else { ?>
 	<span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("NoRecord") ?></span>
 	<?php } ?>
 <?php } ?>
 		</td>
-<?php if ($CustomView2_rpt->TotalGrps > 0) { ?>
+<?php if ($categories_rpt->TotalGrps > 0) { ?>
 		<td style="white-space: nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		<td align="right" style="vertical-align: top; white-space: nowrap;"><span class="phpreportmaker"><?php echo $ReportLanguage->Phrase("RecordsPerPage"); ?>&nbsp;
 <select name="<?php echo EWRPT_TABLE_GROUP_PER_PAGE; ?>" onchange="this.form.submit();">
-<option value="1"<?php if ($CustomView2_rpt->DisplayGrps == 1) echo " selected=\"selected\"" ?>>1</option>
-<option value="2"<?php if ($CustomView2_rpt->DisplayGrps == 2) echo " selected=\"selected\"" ?>>2</option>
-<option value="3"<?php if ($CustomView2_rpt->DisplayGrps == 3) echo " selected=\"selected\"" ?>>3</option>
-<option value="4"<?php if ($CustomView2_rpt->DisplayGrps == 4) echo " selected=\"selected\"" ?>>4</option>
-<option value="5"<?php if ($CustomView2_rpt->DisplayGrps == 5) echo " selected=\"selected\"" ?>>5</option>
-<option value="10"<?php if ($CustomView2_rpt->DisplayGrps == 10) echo " selected=\"selected\"" ?>>10</option>
-<option value="20"<?php if ($CustomView2_rpt->DisplayGrps == 20) echo " selected=\"selected\"" ?>>20</option>
-<option value="50"<?php if ($CustomView2_rpt->DisplayGrps == 50) echo " selected=\"selected\"" ?>>50</option>
-<option value="ALL"<?php if ($CustomView2->getGroupPerPage() == -1) echo " selected=\"selected\"" ?>><?php echo $ReportLanguage->Phrase("AllRecords") ?></option>
+<option value="1"<?php if ($categories_rpt->DisplayGrps == 1) echo " selected=\"selected\"" ?>>1</option>
+<option value="2"<?php if ($categories_rpt->DisplayGrps == 2) echo " selected=\"selected\"" ?>>2</option>
+<option value="3"<?php if ($categories_rpt->DisplayGrps == 3) echo " selected=\"selected\"" ?>>3</option>
+<option value="4"<?php if ($categories_rpt->DisplayGrps == 4) echo " selected=\"selected\"" ?>>4</option>
+<option value="5"<?php if ($categories_rpt->DisplayGrps == 5) echo " selected=\"selected\"" ?>>5</option>
+<option value="10"<?php if ($categories_rpt->DisplayGrps == 10) echo " selected=\"selected\"" ?>>10</option>
+<option value="20"<?php if ($categories_rpt->DisplayGrps == 20) echo " selected=\"selected\"" ?>>20</option>
+<option value="50"<?php if ($categories_rpt->DisplayGrps == 50) echo " selected=\"selected\"" ?>>50</option>
+<option value="ALL"<?php if ($categories->getGroupPerPage() == -1) echo " selected=\"selected\"" ?>><?php echo $ReportLanguage->Phrase("AllRecords") ?></option>
 </select>
 		</span></td>
 <?php } ?>
@@ -552,16 +577,16 @@ while (($rs && !$rs->EOF && $CustomView2_rpt->GrpCount <= $CustomView2_rpt->Disp
 </td></tr></table>
 </div>
 <!-- Summary Report Ends -->
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 	</div><br /></td>
 	<!-- Center Container - Report (End) -->
 	<!-- Right Container (Begin) -->
 	<td style="vertical-align: top;"><div id="ewRight" class="phpreportmaker">
 	<!-- Right slot -->
 <?php } ?>
-<?php if ($CustomView2->Export == "" || $CustomView2->Export == "print" || $CustomView2->Export == "email") { ?>
+<?php if ($categories->Export == "" || $categories->Export == "print" || $categories->Export == "email") { ?>
 <?php } ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 	</div></td>
 	<!-- Right Container (End) -->
 </tr>
@@ -569,22 +594,22 @@ while (($rs && !$rs->EOF && $CustomView2_rpt->GrpCount <= $CustomView2_rpt->Disp
 <tr><td colspan="3"><div id="ewBottom" class="phpreportmaker">
 	<!-- Bottom slot -->
 <?php } ?>
-<?php if ($CustomView2->Export == "" || $CustomView2->Export == "print" || $CustomView2->Export == "email") { ?>
+<?php if ($categories->Export == "" || $categories->Export == "print" || $categories->Export == "email") { ?>
 <?php } ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 	</div><br /></td></tr>
 <!-- Bottom Container (End) -->
 </table>
 <!-- Table Container (End) -->
 <?php } ?>
-<?php $CustomView2_rpt->ShowPageFooter(); ?>
+<?php $categories_rpt->ShowPageFooter(); ?>
 <?php
 
 // Close recordsets
 if ($rsgrp) $rsgrp->Close();
 if ($rs) $rs->Close();
 ?>
-<?php if ($CustomView2->Export == "") { ?>
+<?php if ($categories->Export == "") { ?>
 <script language="JavaScript" type="text/javascript">
 <!--
 
@@ -596,23 +621,23 @@ if ($rs) $rs->Close();
 <?php } ?>
 <?php include "phprptinc/footer.php"; ?>
 <?php
-$CustomView2_rpt->Page_Terminate();
+$categories_rpt->Page_Terminate();
 ?>
 <?php
 
 //
 // Page class
 //
-class crCustomView2_rpt {
+class crcategories_rpt {
 
 	// Page ID
 	var $PageID = 'rpt';
 
 	// Table name
-	var $TableName = 'CustomView2';
+	var $TableName = 'categories';
 
 	// Page object name
-	var $PageObjName = 'CustomView2_rpt';
+	var $PageObjName = 'categories_rpt';
 
 	// Page name
 	function PageName() {
@@ -622,8 +647,8 @@ class crCustomView2_rpt {
 	// Page URL
 	function PageUrl() {
 		$PageUrl = ewrpt_CurrentPage() . "?";
-		global $CustomView2;
-		if ($CustomView2->UseTokenInUrl) $PageUrl .= "t=" . $CustomView2->TableVar . "&"; // Add page token
+		global $categories;
+		if ($categories->UseTokenInUrl) $PageUrl .= "t=" . $categories->TableVar . "&"; // Add page token
 		return $PageUrl;
 	}
 
@@ -677,12 +702,12 @@ class crCustomView2_rpt {
 
 	// Validate page request
 	function IsPageRequest() {
-		global $CustomView2;
-		if ($CustomView2->UseTokenInUrl) {
+		global $categories;
+		if ($categories->UseTokenInUrl) {
 			if (ewrpt_IsHttpPost())
-				return ($CustomView2->TableVar == @$_POST("t"));
+				return ($categories->TableVar == @$_POST("t"));
 			if (@$_GET["t"] <> "")
-				return ($CustomView2->TableVar == @$_GET["t"]);
+				return ($categories->TableVar == @$_GET["t"]);
 		} else {
 			return TRUE;
 		}
@@ -691,14 +716,14 @@ class crCustomView2_rpt {
 	//
 	// Page class constructor
 	//
-	function crCustomView2_rpt() {
+	function crcategories_rpt() {
 		global $conn, $ReportLanguage;
 
 		// Language object
 		$ReportLanguage = new crLanguage();
 
-		// Table object (CustomView2)
-		$GLOBALS["CustomView2"] = new crCustomView2();
+		// Table object (categories)
+		$GLOBALS["categories"] = new crcategories();
 
 		// Initialize URLs
 		$this->ExportPrintUrl = $this->PageUrl() . "export=print";
@@ -711,7 +736,7 @@ class crCustomView2_rpt {
 
 		// Table name (for backward compatibility)
 		if (!defined("EWRPT_TABLE_NAME"))
-			define("EWRPT_TABLE_NAME", 'CustomView2', TRUE);
+			define("EWRPT_TABLE_NAME", 'categories', TRUE);
 
 		// Start timer
 		$GLOBALS["gsTimer"] = new crTimer();
@@ -725,14 +750,14 @@ class crCustomView2_rpt {
 	//
 	function Page_Init() {
 		global $gsExport, $gsExportFile, $ReportLanguage, $Security;
-		global $CustomView2;
+		global $categories;
 
 	// Get export parameters
 	if (@$_GET["export"] <> "") {
-		$CustomView2->Export = $_GET["export"];
+		$categories->Export = $_GET["export"];
 	}
-	$gsExport = $CustomView2->Export; // Get export parameter, used in header
-	$gsExportFile = $CustomView2->TableVar; // Get export file, used in header
+	$gsExport = $categories->Export; // Get export parameter, used in header
+	$gsExportFile = $categories->TableVar; // Get export file, used in header
 
 		// Global Page Loading event (in userfn*.php)
 		Page_Loading();
@@ -747,7 +772,7 @@ class crCustomView2_rpt {
 	function Page_Terminate($url = "") {
 		global $conn;
 		global $ReportLanguage;
-		global $CustomView2;
+		global $categories;
 
 		// Page Unload event
 		$this->Page_Unload();
@@ -756,7 +781,7 @@ class crCustomView2_rpt {
 		Page_Unloaded();
 
 		// Export to Email (use ob_file_contents for PHP)
-		if ($CustomView2->Export == "email") {
+		if ($categories->Export == "email") {
 			$sContent = ob_get_contents();
 			$this->ExportEmail($sContent);
 			ob_end_clean();
@@ -804,7 +829,7 @@ class crCustomView2_rpt {
 	// Page main
 	//
 	function Page_Main() {
-		global $CustomView2;
+		global $categories;
 		global $rs;
 		global $rsgrp;
 		global $gsFormError;
@@ -813,7 +838,7 @@ class crCustomView2_rpt {
 		// 1st dimension = no of groups (level 0 used for grand total)
 		// 2nd dimension = no of fields
 
-		$nDtls = 2;
+		$nDtls = 3;
 		$nGrps = 1;
 		$this->Val = ewrpt_InitArray($nDtls, 0);
 		$this->Cnt = ewrpt_Init2DArray($nGrps, $nDtls, 0);
@@ -825,7 +850,7 @@ class crCustomView2_rpt {
 		$this->GrandMx = ewrpt_InitArray($nDtls, NULL);
 
 		// Set up if accumulation required
-		$this->Col = array(FALSE, FALSE);
+		$this->Col = array(FALSE, FALSE, FALSE);
 
 		// Set up groups per page dynamically
 		$this->SetUpDisplayGrps();
@@ -854,7 +879,7 @@ class crCustomView2_rpt {
 		$this->Sort = $this->GetSort();
 
 		// Get total count
-		$sSql = ewrpt_BuildReportSql($CustomView2->SqlSelect(), $CustomView2->SqlWhere(), $CustomView2->SqlGroupBy(), $CustomView2->SqlHaving(), $CustomView2->SqlOrderBy(), $this->Filter, $this->Sort);
+		$sSql = ewrpt_BuildReportSql($categories->SqlSelect(), $categories->SqlWhere(), $categories->SqlGroupBy(), $categories->SqlHaving(), $categories->SqlOrderBy(), $this->Filter, $this->Sort);
 		$this->TotalGrps = $this->GetCnt($sSql);
 		if ($this->DisplayGrps <= 0) // Display all groups
 			$this->DisplayGrps = $this->TotalGrps;
@@ -866,7 +891,7 @@ class crCustomView2_rpt {
 		//$this->ShowFirstHeader = TRUE; // Uncomment to always show header
 		// Set up start position if not export all
 
-		if ($CustomView2->ExportAll && $CustomView2->Export <> "")
+		if ($categories->ExportAll && $categories->Export <> "")
 		    $this->DisplayGrps = $this->TotalGrps;
 		else
 			$this->SetUpStartGroup(); 
@@ -977,7 +1002,7 @@ class crCustomView2_rpt {
 	// Get row values
 	function GetRow($opt) {
 		global $rs;
-		global $CustomView2;
+		global $categories;
 		if (!$rs)
 			return;
 		if ($opt == 1) { // Get first row
@@ -987,16 +1012,19 @@ class crCustomView2_rpt {
 			$rs->MoveNext();
 		}
 		if (!$rs->EOF) {
-			$CustomView2->Total->setDbValue($rs->fields('Total'));
-			$this->Val[1] = $CustomView2->Total->CurrentValue;
+			$categories->category_id->setDbValue($rs->fields('category_id'));
+			$categories->category->setDbValue($rs->fields('category'));
+			$this->Val[1] = $categories->category_id->CurrentValue;
+			$this->Val[2] = $categories->category->CurrentValue;
 		} else {
-			$CustomView2->Total->setDbValue("");
+			$categories->category_id->setDbValue("");
+			$categories->category->setDbValue("");
 		}
 	}
 
 	//  Set up starting group
 	function SetUpStartGroup() {
-		global $CustomView2;
+		global $categories;
 
 		// Exit if no groups
 		if ($this->DisplayGrps == 0)
@@ -1005,7 +1033,7 @@ class crCustomView2_rpt {
 		// Check for a 'start' parameter
 		if (@$_GET[EWRPT_TABLE_START_GROUP] != "") {
 			$this->StartGrp = $_GET[EWRPT_TABLE_START_GROUP];
-			$CustomView2->setStartGroup($this->StartGrp);
+			$categories->setStartGroup($this->StartGrp);
 		} elseif (@$_GET["pageno"] != "") {
 			$nPageNo = $_GET["pageno"];
 			if (is_numeric($nPageNo)) {
@@ -1015,31 +1043,31 @@ class crCustomView2_rpt {
 				} elseif ($this->StartGrp >= intval(($this->TotalGrps-1)/$this->DisplayGrps)*$this->DisplayGrps+1) {
 					$this->StartGrp = intval(($this->TotalGrps-1)/$this->DisplayGrps)*$this->DisplayGrps+1;
 				}
-				$CustomView2->setStartGroup($this->StartGrp);
+				$categories->setStartGroup($this->StartGrp);
 			} else {
-				$this->StartGrp = $CustomView2->getStartGroup();
+				$this->StartGrp = $categories->getStartGroup();
 			}
 		} else {
-			$this->StartGrp = $CustomView2->getStartGroup();
+			$this->StartGrp = $categories->getStartGroup();
 		}
 
 		// Check if correct start group counter
 		if (!is_numeric($this->StartGrp) || $this->StartGrp == "") { // Avoid invalid start group counter
 			$this->StartGrp = 1; // Reset start group counter
-			$CustomView2->setStartGroup($this->StartGrp);
+			$categories->setStartGroup($this->StartGrp);
 		} elseif (intval($this->StartGrp) > intval($this->TotalGrps)) { // Avoid starting group > total groups
 			$this->StartGrp = intval(($this->TotalGrps-1)/$this->DisplayGrps) * $this->DisplayGrps + 1; // Point to last page first group
-			$CustomView2->setStartGroup($this->StartGrp);
+			$categories->setStartGroup($this->StartGrp);
 		} elseif (($this->StartGrp-1) % $this->DisplayGrps <> 0) {
 			$this->StartGrp = intval(($this->StartGrp-1)/$this->DisplayGrps) * $this->DisplayGrps + 1; // Point to page boundary
-			$CustomView2->setStartGroup($this->StartGrp);
+			$categories->setStartGroup($this->StartGrp);
 		}
 	}
 
 	// Set up popup
 	function SetupPopup() {
 		global $conn, $ReportLanguage;
-		global $CustomView2;
+		global $categories;
 
 		// Initialize popup
 		// Process post back form
@@ -1074,14 +1102,14 @@ class crCustomView2_rpt {
 	function ResetPager() {
 
 		// Reset start position (reset command)
-		global $CustomView2;
+		global $categories;
 		$this->StartGrp = 1;
-		$CustomView2->setStartGroup($this->StartGrp);
+		$categories->setStartGroup($this->StartGrp);
 	}
 
 	// Set up number of groups displayed per page
 	function SetUpDisplayGrps() {
-		global $CustomView2;
+		global $categories;
 		$sWrk = @$_GET[EWRPT_TABLE_GROUP_PER_PAGE];
 		if ($sWrk <> "") {
 			if (is_numeric($sWrk)) {
@@ -1093,14 +1121,14 @@ class crCustomView2_rpt {
 					$this->DisplayGrps = 3; // Non-numeric, load default
 				}
 			}
-			$CustomView2->setGroupPerPage($this->DisplayGrps); // Save to session
+			$categories->setGroupPerPage($this->DisplayGrps); // Save to session
 
 			// Reset start position (reset command)
 			$this->StartGrp = 1;
-			$CustomView2->setStartGroup($this->StartGrp);
+			$categories->setStartGroup($this->StartGrp);
 		} else {
-			if ($CustomView2->getGroupPerPage() <> "") {
-				$this->DisplayGrps = $CustomView2->getGroupPerPage(); // Restore from session
+			if ($categories->getGroupPerPage() <> "") {
+				$this->DisplayGrps = $categories->getGroupPerPage(); // Restore from session
 			} else {
 				$this->DisplayGrps = 3; // Load default
 			}
@@ -1109,11 +1137,11 @@ class crCustomView2_rpt {
 
 	function RenderRow() {
 		global $conn, $Security;
-		global $CustomView2;
-		if ($CustomView2->RowTotalType == EWRPT_ROWTOTAL_GRAND) { // Grand total
+		global $categories;
+		if ($categories->RowTotalType == EWRPT_ROWTOTAL_GRAND) { // Grand total
 
 			// Get total count from sql directly
-			$sSql = ewrpt_BuildReportSql($CustomView2->SqlSelectCount(), $CustomView2->SqlWhere(), $CustomView2->SqlGroupBy(), $CustomView2->SqlHaving(), "", $this->Filter, "");
+			$sSql = ewrpt_BuildReportSql($categories->SqlSelectCount(), $categories->SqlWhere(), $categories->SqlGroupBy(), $categories->SqlHaving(), "", $this->Filter, "");
 			$rstot = $conn->Execute($sSql);
 			if ($rstot) {
 				$this->TotCount = ($rstot->RecordCount()>1) ? $rstot->RecordCount() : $rstot->fields[0];
@@ -1124,32 +1152,42 @@ class crCustomView2_rpt {
 		}
 
 		// Call Row_Rendering event
-		$CustomView2->Row_Rendering();
+		$categories->Row_Rendering();
 
 		/* --------------------
 		'  Render view codes
 		' --------------------- */
-		if ($CustomView2->RowType == EWRPT_ROWTYPE_TOTAL) { // Summary row
+		if ($categories->RowType == EWRPT_ROWTYPE_TOTAL) { // Summary row
 
-			// Total
-			$CustomView2->Total->ViewValue = $CustomView2->Total->Summary;
+			// category_id
+			$categories->category_id->ViewValue = $categories->category_id->Summary;
+
+			// category
+			$categories->category->ViewValue = $categories->category->Summary;
 		} else {
 
-			// Total
-			$CustomView2->Total->ViewValue = $CustomView2->Total->CurrentValue;
-			$CustomView2->Total->CellAttrs["class"] = ($this->RecCount % 2 <> 1) ? "ewTableAltRow" : "ewTableRow";
+			// category_id
+			$categories->category_id->ViewValue = $categories->category_id->CurrentValue;
+			$categories->category_id->CellAttrs["class"] = ($this->RecCount % 2 <> 1) ? "ewTableAltRow" : "ewTableRow";
+
+			// category
+			$categories->category->ViewValue = $categories->category->CurrentValue;
+			$categories->category->CellAttrs["class"] = ($this->RecCount % 2 <> 1) ? "ewTableAltRow" : "ewTableRow";
 		}
 
-		// Total
-		$CustomView2->Total->HrefValue = "";
+		// category_id
+		$categories->category_id->HrefValue = "";
+
+		// category
+		$categories->category->HrefValue = "";
 
 		// Call Row_Rendered event
-		$CustomView2->Row_Rendered();
+		$categories->Row_Rendered();
 	}
 
 	// Return poup filter
 	function GetPopupFilter() {
-		global $CustomView2;
+		global $categories;
 		$sWrk = "";
 		return $sWrk;
 	}
@@ -1159,26 +1197,27 @@ class crCustomView2_rpt {
 	// - Return Sort parameters based on Sort Links clicked
 	// - Variables setup: Session[EWRPT_TABLE_SESSION_ORDER_BY], Session["sort_Table_Field"]
 	function GetSort() {
-		global $CustomView2;
+		global $categories;
 
 		// Check for a resetsort command
 		if (strlen(@$_GET["cmd"]) > 0) {
 			$sCmd = @$_GET["cmd"];
 			if ($sCmd == "resetsort") {
-				$CustomView2->setOrderBy("");
-				$CustomView2->setStartGroup(1);
-				$CustomView2->Total->setSort("");
+				$categories->setOrderBy("");
+				$categories->setStartGroup(1);
+				$categories->category_id->setSort("");
+				$categories->category->setSort("");
 			}
 
 		// Check for an Order parameter
 		} elseif (@$_GET["order"] <> "") {
-			$CustomView2->CurrentOrder = ewrpt_StripSlashes(@$_GET["order"]);
-			$CustomView2->CurrentOrderType = @$_GET["ordertype"];
-			$sSortSql = $CustomView2->SortSql();
-			$CustomView2->setOrderBy($sSortSql);
-			$CustomView2->setStartGroup(1);
+			$categories->CurrentOrder = ewrpt_StripSlashes(@$_GET["order"]);
+			$categories->CurrentOrderType = @$_GET["ordertype"];
+			$sSortSql = $categories->SortSql();
+			$categories->setOrderBy($sSortSql);
+			$categories->setStartGroup(1);
 		}
-		return $CustomView2->getOrderBy();
+		return $categories->getOrderBy();
 	}
 
 	// Page Load event
