@@ -1,8 +1,8 @@
 <?php
 
 // PHP Report Maker 4.0 - configuration
-define("EWRPT_PROJECT_NAME", "project2", TRUE); // Project Name
-define("EWRPT_PROJECT_VAR", "project2", TRUE); // Project Var
+define("EWRPT_PROJECT_NAME", "project8", TRUE); // Project Name
+define("EWRPT_PROJECT_VAR", "project8", TRUE); // Project Var
 define("EWRPT_IS_WINDOWS", (strtolower(substr(PHP_OS, 0, 3)) === 'win'), TRUE); // Is Windows OS
 define("EWRPT_IS_PHP5", (phpversion() >= "5.0.0"), TRUE); // Is PHP 5 or later
 define("EWRPT_PATH_DELIMITER", ((EWRPT_IS_WINDOWS) ? "\\" : "/"), TRUE); // Path delimiter
@@ -44,8 +44,8 @@ $EWRPT_XSS_ARRAY = array('javascript', 'vbscript', 'expression', '<applet', '<me
 define("EWRPT_ROOT_RELATIVE_PATH", ".", TRUE); // Relative path of app root
 define("EWRPT_DEFAULT_DATE_FORMAT", "yyyy/mm/dd", TRUE); // Default date format
 define("EWRPT_DATE_SEPARATOR", "/", TRUE); // Date separator
-define("EWRPT_RANDOM_KEY", 'xix5kN_mm8Ig&Zcy', TRUE); // Random key for encryption
-define("EWRPT_PROJECT_STYLESHEET_FILENAME", "phprptcss/project2.css", TRUE); // Project stylesheet file name
+define("EWRPT_RANDOM_KEY", '8eVPRbMIT43k2JRp', TRUE); // Random key for encryption
+define("EWRPT_PROJECT_STYLESHEET_FILENAME", "phprptcss/project8.css", TRUE); // Project stylesheet file name
 define("EWRPT_CHART_WIDTH", 550, TRUE);
 define("EWRPT_CHART_HEIGHT", 440, TRUE);
 define("EWRPT_CHART_ALIGN", "middle", TRUE);

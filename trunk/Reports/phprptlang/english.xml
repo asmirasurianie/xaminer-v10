@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" standalone="yes"?>
-<ew-language date="2010/10/26" version="4.0.1" id="en" name="English" desc="English" author="e.World Technology Ltd.">
+<ew-language date="2010/11/1" version="4.0.1" id="en" name="English" desc="English" author="e.World Technology Ltd.">
 	<global>
 		<phrase id="allrecords" value="All"/>
 		<phrase id="alwaysask" value="Always ask for my user name and password"/>
@@ -201,21 +201,97 @@
 </menu>
 <menu id="14"><phrase id="menutext" value="Report 1"/>
 </menu>
-<menu id="15"><phrase id="menutext" value="Chart 1"/>
+<menu id="15"><phrase id="menutext" value="Student Col Chart"/>
 </menu>
-<menu id="16"><phrase id="menutext" value="Studentwise Tests taken"/>
+<menu id="16"><phrase id="menutext" value="Chart 2"/>
 </menu>
-<menu id="17"><phrase id="menutext" value="Studentwise"/>
+<menu id="17"><phrase id="menutext" value="Report 2"/>
 </menu>
-<menu id="18"><phrase id="menutext" value="Score by test"/>
+<menu id="18"><phrase id="menutext" value="Chart 1"/>
 </menu>
-<menu id="19"><phrase id="menutext" value="Student wise"/>
+<menu id="19"><phrase id="menutext" value="Chart 2"/>
 </menu>
-<menu id="20"><phrase id="menutext" value="Score Test"/>
+<menu id="20"><phrase id="menutext" value="Custom View 2"/>
 </menu>
-<menu id="21"><phrase id="menutext" value="Custom View 2"/>
+<menu id="21"><phrase id="menutext" value="Report 3"/>
 </menu>
-<menu id="22"><phrase id="menutext" value="Crosstab 1"/>
+<menu id="22"><phrase id="menutext" value="Report 4"/>
+</menu>
+<menu id="23"><phrase id="menutext" value="Chart 1"/>
+</menu>
+<menu id="24"><phrase id="menutext" value="Custom View 3"/>
+</menu>
+<menu id="25"><phrase id="menutext" value="Report 5"/>
+</menu>
+<menu id="26"><phrase id="menutext" value="Chart 1"/>
+</menu>
+<menu id="27"><phrase id="menutext" value="Report 6"/>
+</menu>
+<menu id="28"><phrase id="menutext" value="Chart 1"/>
+</menu>
+<menu id="29"><phrase id="menutext" value="Report 7"/>
+</menu>
+<menu id="30"><phrase id="menutext" value="Chart 1"/>
+</menu>
+<menu id="31"><phrase id="menutext" value="Custom View 4"/>
+</menu>
+<menu id="32"><phrase id="menutext" value="Report 8"/>
+</menu>
+<menu id="33"><phrase id="menutext" value="Chart 1"/>
+</menu>
+<menu id="34"><phrase id="menutext" value="Report 9"/>
+</menu>
+<menu id="35"><phrase id="menutext" value="Report 10"/>
+</menu>
+<menu id="36"><phrase id="menutext" value="Time Taken by each student"/>
+</menu>
+<menu id="37"><phrase id="menutext" value="Custom View 5"/>
+</menu>
+<menu id="38"><phrase id="menutext" value="Report 11"/>
+</menu>
+<menu id="39"><phrase id="menutext" value="Time Taken"/>
+</menu>
+<menu id="40"><phrase id="menutext" value="Report 12"/>
+</menu>
+<menu id="41"><phrase id="menutext" value="Time Taken"/>
+</menu>
+<menu id="42"><phrase id="menutext" value="Report 13"/>
+</menu>
+<menu id="43"><phrase id="menutext" value="Chart 1"/>
+</menu>
+<menu id="44"><phrase id="menutext" value="Custom View 6"/>
+</menu>
+<menu id="45"><phrase id="menutext" value="Report 14"/>
+</menu>
+<menu id="46"><phrase id="menutext" value="Chart 1"/>
+</menu>
+<menu id="47"><phrase id="menutext" value="Chart 2"/>
+</menu>
+<menu id="48"><phrase id="menutext" value="Report 15"/>
+</menu>
+<menu id="49"><phrase id="menutext" value="Custom View 7"/>
+</menu>
+<menu id="50"><phrase id="menutext" value="Report 16"/>
+</menu>
+<menu id="51"><phrase id="menutext" value="Result"/>
+</menu>
+<menu id="52"><phrase id="menutext" value="Report 17"/>
+</menu>
+<menu id="53"><phrase id="menutext" value="No of students passed / failed"/>
+</menu>
+<menu id="54"><phrase id="menutext" value="Custom View 8"/>
+</menu>
+<menu id="55"><phrase id="menutext" value="Report 18"/>
+</menu>
+<menu id="56"><phrase id="menutext" value="No of students attended exam"/>
+</menu>
+<menu id="57"><phrase id="menutext" value="No of students attended exam"/>
+</menu>
+<menu id="58"><phrase id="menutext" value="Report 19"/>
+</menu>
+<menu id="59"><phrase id="menutext" value="No of students passed / failed"/>
+</menu>
+<menu id="60"><phrase id="menutext" value="No of students passed / failed"/>
 </menu>
 <table id="answers"><phrase id="tblcaption" value="answers"/>
 <field id="answers_id"><phrase id="fldcaption" value="answers id"/>
@@ -249,6 +325,10 @@
 <field id="attended_date"><phrase id="fldcaption" value="attended date"/>
 </field>
 <field id="attended_time"><phrase id="fldcaption" value="attended time"/>
+</field>
+<field id="total_time28in_seconds29"><phrase id="fldcaption" value="total time (in seconds)"/>
+</field>
+<field id="grade"><phrase id="fldcaption" value="grade"/>
 </field>
 </table>
 <table id="options"><phrase id="tblcaption" value="options"/>
@@ -355,97 +435,51 @@
 <field id="user_created"><phrase id="fldcaption" value="user created"/>
 </field>
 </table>
-<table id="testc_count"><phrase id="tblcaption" value="Custom View 1"/>
-<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
-</field>
-<field id="no_of_students"><phrase id="fldcaption" value="No of Students"/>
-</field>
-</table>
-<table id="report1"><phrase id="tblcaption" value="Report 1"/>
-<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
-</chart>
-<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
-</field>
-<field id="no_of_students"><phrase id="fldcaption" value="No of Students"/>
-</field>
-</table>
-<table id="studentwise_tests_taken"><phrase id="tblcaption" value="Studentwise Tests taken"/>
+<table id="customview1"><phrase id="tblcaption" value="Custom View 1"/>
 <field id="first_name"><phrase id="fldcaption" value="first name"/>
 </field>
 <field id="last_name"><phrase id="fldcaption" value="last name"/>
 </field>
-<field id="rollno"><phrase id="fldcaption" value="rollno"/>
+<field id="zemail"><phrase id="fldcaption" value="email"/>
 </field>
-<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+<field id="phone_no2e"><phrase id="fldcaption" value="phone no"/>
 </field>
-<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
+<field id="roll_no"><phrase id="fldcaption" value="rollno"/>
 </field>
-<field id="attended_date"><phrase id="fldcaption" value="attended date"/>
+<field id="branch"><phrase id="fldcaption" value="branch"/>
 </field>
-<field id="attended_time"><phrase id="fldcaption" value="attended time"/>
+<field id="username"><phrase id="fldcaption" value="username"/>
 </field>
-</table>
-<table id="studentwise"><phrase id="tblcaption" value="Studentwise"/>
-<field id="first_name"><phrase id="fldcaption" value="first name"/>
+<field id="parents_no"><phrase id="fldcaption" value="parentsno"/>
 </field>
-<field id="last_name"><phrase id="fldcaption" value="last name"/>
+<field id="password"><phrase id="fldcaption" value="password"/>
 </field>
-<field id="rollno"><phrase id="fldcaption" value="rollno"/>
+<field id="confirm"><phrase id="fldcaption" value="confirm"/>
 </field>
-<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
-</field>
-<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
-</field>
-<field id="attended_date"><phrase id="fldcaption" value="attended date"/>
-</field>
-<field id="attended_time"><phrase id="fldcaption" value="attended time"/>
-</field>
-</table>
-<table id="score_by_test"><phrase id="tblcaption" value="Score by test"/>
-<field id="first_name"><phrase id="fldcaption" value="first name"/>
-</field>
-<field id="last_name"><phrase id="fldcaption" value="last name"/>
-</field>
-<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
-</field>
-<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
-</field>
-</table>
-<table id="student_wise"><phrase id="tblcaption" value="Student wise"/>
-<field id="first_name"><phrase id="fldcaption" value="First Name"/>
-</field>
-<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
-</field>
-<field id="roll_no"><phrase id="fldcaption" value="Roll No"/>
-</field>
-<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
-</field>
-<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
-</field>
-<field id="attended_date"><phrase id="fldcaption" value="Attended Date"/>
-</field>
-<field id="attended_time"><phrase id="fldcaption" value="Attended Time"/>
-</field>
-</table>
-<table id="score_test"><phrase id="tblcaption" value="Score Test"/>
-<field id="first_name"><phrase id="fldcaption" value="First Name"/>
-</field>
-<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
-</field>
-<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
-</field>
-<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
+<field id="class_name"><phrase id="fldcaption" value="class"/>
 </field>
 </table>
 <table id="customview2"><phrase id="tblcaption" value="Custom View 2"/>
-<field id="first_name"><phrase id="fldcaption" value="First Name"/>
-</field>
-<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
-</field>
-<field id="no_of_attempts"><phrase id="fldcaption" value="No Of Attempts"/>
+<field id="total"><phrase id="fldcaption" value="Total"/>
 </field>
 </table>
-<table id="crosstab1"><phrase id="tblcaption" value="Crosstab 1"/>
+<table id="customview3"><phrase id="tblcaption" value="Custom View 3"/>
+<field id="date"><phrase id="fldcaption" value="date"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+</table>
+<table id="customview4"><phrase id="tblcaption" value="Custom View 4"/>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="total time (in seconds)"/>
+</field>
+</table>
+<table id="customview5"><phrase id="tblcaption" value="Custom View 5"/>
 <field id="first_name"><phrase id="fldcaption" value="First Name"/>
 </field>
 <field id="last_name"><phrase id="fldcaption" value="Last Name"/>
@@ -453,6 +487,321 @@
 <field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
 </field>
 <field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="Total Time"/>
+</field>
+</table>
+<table id="report1"><phrase id="tblcaption" value="Report 1"/>
+<chart id="student_col_chart"><phrase id="chartcaption" value="Student Col Chart"/>
+<phrase id="chartxaxisname" value="first name"/>
+<phrase id="chartyaxisname" value="class"/>
+</chart>
+<chart id="student_pie_chart"><phrase id="chartcaption" value="Chart 2"/>
+<phrase id="chartxaxisname" value="first name"/>
+<phrase id="chartyaxisname" value="class"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="zemail"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="phone_no2e"><phrase id="fldcaption" value="phone no"/>
+</field>
+<field id="roll_no"><phrase id="fldcaption" value="rollno"/>
+</field>
+<field id="branch"><phrase id="fldcaption" value="branch"/>
+</field>
+<field id="username"><phrase id="fldcaption" value="username"/>
+</field>
+<field id="parents_no"><phrase id="fldcaption" value="parentsno"/>
+</field>
+<field id="password"><phrase id="fldcaption" value="password"/>
+</field>
+<field id="confirm"><phrase id="fldcaption" value="confirm"/>
+</field>
+<field id="class_name"><phrase id="fldcaption" value="class"/>
+</field>
+</table>
+<table id="report2"><phrase id="tblcaption" value="Report 2"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+<phrase id="chartxaxisname" value="class"/>
+<phrase id="chartyaxisname" value="first name"/>
+</chart>
+<chart id="chart2"><phrase id="chartcaption" value="Chart 2"/>
+<phrase id="chartxaxisname" value="class"/>
+<phrase id="chartyaxisname" value="first name"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="zemail"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="phone_no2e"><phrase id="fldcaption" value="phone no"/>
+</field>
+<field id="roll_no"><phrase id="fldcaption" value="rollno"/>
+</field>
+<field id="branch"><phrase id="fldcaption" value="branch"/>
+</field>
+<field id="username"><phrase id="fldcaption" value="username"/>
+</field>
+<field id="parents_no"><phrase id="fldcaption" value="parentsno"/>
+</field>
+<field id="password"><phrase id="fldcaption" value="password"/>
+</field>
+<field id="confirm"><phrase id="fldcaption" value="confirm"/>
+</field>
+<field id="class_name"><phrase id="fldcaption" value="class"/>
+</field>
+</table>
+<table id="report3"><phrase id="tblcaption" value="Report 3"/>
+<field id="total"><phrase id="fldcaption" value="Total"/>
+</field>
+</table>
+<table id="report4"><phrase id="tblcaption" value="Report 4"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+</chart>
+<field id="total"><phrase id="fldcaption" value="Total"/>
+</field>
+</table>
+<table id="report5"><phrase id="tblcaption" value="Report 5"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+<phrase id="chartxaxisname" value="date"/>
+<phrase id="chartyaxisname" value="paper name"/>
+</chart>
+<field id="date"><phrase id="fldcaption" value="date"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+</table>
+<table id="report6"><phrase id="tblcaption" value="Report 6"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+<phrase id="chartxaxisname" value="paper name"/>
+<phrase id="chartyaxisname" value="date"/>
+</chart>
+<field id="date"><phrase id="fldcaption" value="date"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+</table>
+<table id="report7"><phrase id="tblcaption" value="Report 7"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+<phrase id="chartxaxisname" value="paper name"/>
+<phrase id="chartyaxisname" value="date"/>
+</chart>
+<field id="date"><phrase id="fldcaption" value="date"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+</table>
+<table id="report8"><phrase id="tblcaption" value="Report 8"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+<phrase id="chartxaxisname" value="first name"/>
+<phrase id="chartyaxisname" value="total time (in seconds)"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="total time (in seconds)"/>
+</field>
+</table>
+<table id="report9"><phrase id="tblcaption" value="Report 9"/>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="total time (in seconds)"/>
+</field>
+</table>
+<table id="report10"><phrase id="tblcaption" value="Report 10"/>
+<chart id="time_taken_by_each_student"><phrase id="chartcaption" value="Time Taken by each student"/>
+<phrase id="chartxaxisname" value="first name"/>
+<phrase id="chartyaxisname" value="total time (in seconds)"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="total time (in seconds)"/>
+</field>
+</table>
+<table id="report11"><phrase id="tblcaption" value="Report 11"/>
+<chart id="time_taken"><phrase id="chartcaption" value="Time Taken"/>
+<phrase id="chartxaxisname" value="first name"/>
+<phrase id="chartyaxisname" value="total time (in seconds)"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="First Name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="Total Time"/>
+</field>
+</table>
+<table id="report12"><phrase id="tblcaption" value="Report 12"/>
+<chart id="time_taken"><phrase id="chartcaption" value="Time Taken"/>
+<phrase id="chartxaxisname" value="First Name"/>
+<phrase id="chartyaxisname" value="Total Time"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="First Name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="Total Time"/>
+</field>
+</table>
+<table id="report13"><phrase id="tblcaption" value="Report 13"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+<phrase id="chartxaxisname" value="First Name"/>
+<phrase id="chartyaxisname" value="Total Time"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="First Name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="Last Name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+<field id="total_marks"><phrase id="fldcaption" value="Total Marks"/>
+</field>
+<field id="total_time"><phrase id="fldcaption" value="Total Time"/>
+</field>
+</table>
+<table id="customview6"><phrase id="tblcaption" value="Custom View 6"/>
+<field id="total"><phrase id="fldcaption" value="Total"/>
+</field>
+<field id="passed"><phrase id="fldcaption" value="Passed"/>
+</field>
+<field id="z25_of_students_passed"><phrase id="fldcaption" value="% of Students Passed"/>
+</field>
+</table>
+<table id="report14"><phrase id="tblcaption" value="Report 14"/>
+<chart id="chart1"><phrase id="chartcaption" value="Chart 1"/>
+<phrase id="chartxaxisname" value="Total"/>
+<phrase id="chartyaxisname" value="% of Students Passed"/>
+</chart>
+<chart id="chart2"><phrase id="chartcaption" value="Chart 2"/>
+<phrase id="chartxaxisname" value="% of Students Passed"/>
+</chart>
+<field id="total"><phrase id="fldcaption" value="Total"/>
+</field>
+<field id="passed"><phrase id="fldcaption" value="Passed"/>
+</field>
+<field id="z25_of_students_passed"><phrase id="fldcaption" value="% of Students Passed"/>
+</field>
+</table>
+<table id="report15"><phrase id="tblcaption" value="Report 15"/>
+<field id="total"><phrase id="fldcaption" value="Total"/>
+</field>
+<field id="passed"><phrase id="fldcaption" value="Passed"/>
+</field>
+<field id="z25_of_students_passed"><phrase id="fldcaption" value="% of Students Passed"/>
+</field>
+</table>
+<table id="customview7"><phrase id="tblcaption" value="Custom View 7"/>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="outof"><phrase id="fldcaption" value="outof"/>
+</field>
+<field id="grade"><phrase id="fldcaption" value="grade"/>
+</field>
+<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
+</field>
+</table>
+<table id="report16"><phrase id="tblcaption" value="Report 16"/>
+<chart id="result"><phrase id="chartcaption" value="Result"/>
+<phrase id="chartxaxisname" value="grade"/>
+<phrase id="chartyaxisname" value="first_name"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="outof"><phrase id="fldcaption" value="outof"/>
+</field>
+<field id="grade"><phrase id="fldcaption" value="grade"/>
+</field>
+<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
+</field>
+</table>
+<table id="report17"><phrase id="tblcaption" value="Report 17"/>
+<chart id="chart1"><phrase id="chartcaption" value="No of students passed / failed"/>
+<phrase id="chartxaxisname" value="paper name"/>
+<phrase id="chartyaxisname" value="grade"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="outof"><phrase id="fldcaption" value="outof"/>
+</field>
+<field id="grade"><phrase id="fldcaption" value="grade"/>
+</field>
+<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
+</field>
+</table>
+<table id="customview8"><phrase id="tblcaption" value="Custom View 8"/>
+<field id="no_of_students"><phrase id="fldcaption" value="No of Students"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+</table>
+<table id="report18"><phrase id="tblcaption" value="Report 18"/>
+<chart id="no_of_students_attended_exam"><phrase id="chartcaption" value="No of students attended exam"/>
+<phrase id="chartxaxisname" value="Paper Name"/>
+<phrase id="chartyaxisname" value="No of Students"/>
+</chart>
+<chart id="no_of_students_attended_exams"><phrase id="chartcaption" value="No of students attended exams"/>
+<phrase id="chartxaxisname" value="Paper Name"/>
+<phrase id="chartyaxisname" value="No of Students"/>
+</chart>
+<field id="no_of_students"><phrase id="fldcaption" value="No of Students"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="Paper Name"/>
+</field>
+</table>
+<table id="report19"><phrase id="tblcaption" value="Report 19"/>
+<chart id="chart1"><phrase id="chartcaption" value="No of students passed / failed"/>
+<phrase id="chartxaxisname" value="paper name"/>
+<phrase id="chartyaxisname" value="grade"/>
+</chart>
+<chart id="chart2"><phrase id="chartcaption" value="No of students passed / failed"/>
+<phrase id="chartxaxisname" value="paper_name"/>
+<phrase id="chartyaxisname" value="grade"/>
+</chart>
+<field id="first_name"><phrase id="fldcaption" value="first name"/>
+</field>
+<field id="last_name"><phrase id="fldcaption" value="last name"/>
+</field>
+<field id="paper_name"><phrase id="fldcaption" value="paper name"/>
+</field>
+<field id="outof"><phrase id="fldcaption" value="outof"/>
+</field>
+<field id="grade"><phrase id="fldcaption" value="grade"/>
+</field>
+<field id="totalmarks"><phrase id="fldcaption" value="totalmarks"/>
 </field>
 </table>
 </project>

@@ -153,7 +153,9 @@ function MenuItem_Adding(&$Item) {
 // Generate all menu items
 $RootMenu = new crMenu("RootMenu");
 $RootMenu->IsRoot = TRUE;
-$RootMenu->AddMenuItem(13, $ReportLanguage->Phrase("SimpleReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("13", "MenuText") . $ReportLanguage->Phrase("SimpleReportMenuItemSuffix"), "Testc_Countrpt.php", -1, "", "", TRUE);
+$RootMenu->AddMenuItem(58, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("58", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "Report19smry.php", -1, "", "", TRUE);
+$RootMenu->AddMenuItem(59, $ReportLanguage->Phrase("ChartReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("59", "MenuText") . $ReportLanguage->Phrase("ChartReportMenuItemSuffix"), "Report19smry.php#cht_Chart1", 58, "", "", TRUE);
+$RootMenu->AddMenuItem(60, $ReportLanguage->Phrase("ChartReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("60", "MenuText") . $ReportLanguage->Phrase("ChartReportMenuItemSuffix"), "Report19smry.php#cht_Chart2", 58, "", "", TRUE);
 $RootMenu->Render();
 ?>
 </div>
