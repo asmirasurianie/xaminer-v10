@@ -164,7 +164,7 @@ $row_count=mysql_num_rows($sql);
 				} 
 				} //else end
 	}
-	echo "<input type='text' name='Text1' id='Text1'>";
+	echo "<input type='hidden' name='Text1' id='Text1'>";
 	
 	?>
 	<script>

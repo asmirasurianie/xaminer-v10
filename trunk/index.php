@@ -513,7 +513,7 @@ $(document).ready(function(){
                 
                 ?>
                             <br>
-                            <input type="button" id="addquestion3" name="addquestion3" value="Generate Paper" class="submit-butt">
+                            <input type="button" id="addquestion3" name="addquestion3" value="Generate Paper" class="submit-butt"/>
                 <div id="addgenerate"></div>
                 
 				 <div id="loding1"></div>
@@ -549,7 +549,9 @@ $(document).ready(function(){
 				</script>
             <b style="font-size:15px; color:#900">Manage Scheduler</b><br /><br />		
 			<?php $sql = mysql_query("select * from paper_time as pt,temp_std as ts,class as cl,papers as pa where pt.paper_id=ts.paper_id and cl.class_id=ts.class_id and pt.paper_id=pa.paper_id");
-
+               /* $s="select * from paper_time as pt,temp_std as ts,class as cl,papers as pa where pt.paper_id=ts.paper_id and cl.class_id=ts.class_id and pt.paper_id=pa.paper_id";
+			   echo $s; */
+			   
 				if(mysql_num_rows($sql) >0){
 				echo '<div style="height:220px; overflow:scroll; width:1050px;"><table border=0 cellspacing="0px" cellpadding="0px"  width="100%" class="tablestyle">';
 				echo '<tr><th><b>Paper Name</b></th><th><b>Start Time</b></th><th><b>End Time</b></th><th><b>Date</b></th><th><b>Class</b></th><th><b>Edit</b></th><th><b>Delete</b></th></tr>';

@@ -6,7 +6,7 @@ include('includes/connect.php');
     	$classes = $_POST["cla123"];
 		$batch = $_POST["batch"];
 		
-	$class="select * from class where class='".$classes."'";
+	$class="select * from class where class='".$classes."' and batch='".$batch."'";
 	$classResult=mysql_query($class);
 	
 	

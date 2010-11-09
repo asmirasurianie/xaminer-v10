@@ -5,17 +5,19 @@ include('includes/connect.php');
 <script type="text/javascript" src="calendar/calendar-en.js"></script>
 <script type="text/javascript" src="calendar/calendar-setup.js"></script>
 <link rel="stylesheet" type="text/css" href="calendar/calendar-win2k-cold-1.css">
+<script language="JavaScript" type="text/javascript" src="pickerVars.js"></script>
+<script language="JavaScript" type="text/javascript" src="picker.js"></script>
 <script type="text/javascript">
 				$(document).ready(function(){
 					$("#cancel").click(function() {
-						$("#sch").hide();
+						$("#s").hide();
 						return false;
 					});
 				});
 				</script>
 
 
-<div id="sch" class="editprocess">
+<div id="s" class="editprocess">
 <div id="title">Edit Scheduler</div>
  <?php 
 			$sql ="SELECT * FROM paper_time AS pt, temp_std AS ts, class AS cl,papers as pa WHERE pt.paper_id = ts.paper_id AND cl.class_id = ts.class_id AND pt.paper_id = pa.paper_id AND pa.paper_id='".$_REQUEST['paper_id']."'";

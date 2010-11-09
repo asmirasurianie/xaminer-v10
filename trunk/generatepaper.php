@@ -43,11 +43,11 @@
       <div id="marks"></div>
       
       </tr>
-       <tr>
+      <tr>
           <td colspan="3"><div id="r4"></div></td>		  
       </tr>
 	  <tr>
-          <td><input type="submit" value="Print Paper" id="generatpaper123" name="generatpaper123" onclick="return checkpaper();" class="sub-butt"/></td><td><input type="button" value="cancel" class="sub-butt" onclick="cancelpaper();return false;"/></td>
+          <td><input type="submit" value="Print Paper" id="generatpaper123" name="generatpaper123" onClick="return checkpaper();" class="sub-butt"/></td><td><input type="button" value="cancel" class="sub-butt" onClick="cancelpaper();return false;"/></td>
 	  </tr>
 </table>
 </form>

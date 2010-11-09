@@ -150,7 +150,10 @@ include('includes/connect.php');
 						  <td><input type="checkbox" name="a2" id="a2"/>One quetion per page</td>
 						</tr>						                        
                         <tr>
-						<td><input type="submit" name="Submit" value="SUBMIT"/></td>
+						<td><input type="submit" name="Submit" value="SUBMIT" class="sub-butt"/></td>
+						<td >
+				    <input type="button" value="cancel" class="sub-butt" onclick="cancelschdular();return false;"/>
+                    &nbsp;</td>
 						</tr>
 						
 </div>

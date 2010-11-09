@@ -5,12 +5,12 @@ include('includes/connect.php');
 <script type="text/javascript">
 				$(document).ready(function(){
 					$("#cancel").click(function() {
-						$("#cat").hide();
+						$("#cat1").hide();
 						return false;
 					});
 				});
 				</script>
-<div id="cat" class="editprocess">
+<div id="cat1" class="editprocess">
 <div id="title">Edit Category</div>
 
 
