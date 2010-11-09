@@ -16,12 +16,12 @@
 		 $result2=mysql_fetch_row($result1);
 		 $_SESSION['question_id']=$result2['0'];
 		 //echo $_SESSION['question_id'];
-	     //header('Location:addquestions.php');
+	     header('Location:addquestions.php');
 		 
 	   }
     else
 	   {
-	    // header('Location:addquestions.php');
+	     header('Location:addquestions.php');
 	   } 
 ?>
 <? ob_flush(); ?> 

@@ -6,10 +6,25 @@ include('includes/connect.php');
 		$strEmail = $_REQUEST["email"];
 		$strPhone = $_REQUEST["phone"];
 		$strClass = $_REQUEST["classname"];
-		$strRollno = $_REQUEST["rollno"];
+		//$strRollno = $_REQUEST["rollno"];
 		$strBranch = $_REQUEST["branch"];
 		$strParentsno = $_REQUEST["parentsno"];
 		$r = '';
+		
+        $getlarroll="select max(rollno) from students where branch='".$strBranch."' and class_id='".$strClass."' ";
+		$rollResult=mysql_query($getlarroll);
+		
+		$rw=mysql_fetch_row($rollResult);
+		 
+		if (!$rw) {
+        echo 'Could not run query: ' . mysql_error();
+		exit;
+		}
+		$roll= $rw[0];
+		
+		$roll += 1;
+		$strRollno = $roll;
+
 		for($j=0; $j<5; $j++)
 			$r .= chr(rand(0, 25) + ord('1'));
 

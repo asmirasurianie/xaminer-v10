@@ -40,17 +40,20 @@ include('includes/connect.php');
 			?>
             </select>
             </td>
+			<td><div id="r4"></div></td>
 		 </tr>
-        <tr><td class="login">Roll No.:</td>
-		<td class="login"><input type="text" name="rollno" id="rollno" value=""></td>
-		<td><div id="r4"></div></td>
-		</tr>
+        
         <tr><td class="login">Branch:</td>
 		<td class="login"><input type="text" name="branch" id="branch" value=""></td>
-		</tr>
-        <tr><td class="login">Gaurdian/ Parents Contact No.:</td>
-		<td class="login"><input type="text" name="parentsno" id="parentsno" value=""></td>
 		<td><div id="r5"></div></td>
+		</tr>
+		 <!-- <tr><td class="login">Roll No.:</td>
+		<td class="login"><input type="text" name="rollno" id="rollno" value="" DISABLED></td>
+		<td><div id="r4"></div></td>
+		</tr> --> 
+        <tr><td class="login">Gaurdian/ Parents Contact No.:</td>
+		<td class="login"><input type="text" name="parentsno" id="parentsno" value="" ></td>
+		<td><div id="r6"></div></td>
 		</tr>
         <tr>
        	 <td colspan="2">&nbsp;</td>

@@ -135,7 +135,9 @@
 				<a href="javascript:addquestion();reloadMCE()">Add more questions</a> <!-- <a href="#" onclick="reloadMCE()">reload</a> -->
 			</td>
 			<td align="right">
+
 				<input type="submit" value="submit" id="addquestion" name="addquestion" class="sub-butt" onclick="return submitquescheck();"/>
+
 				<input type="button" value="cancel" class="sub-butt" onclick="cancelme();return false;"/>
 			</td>
 			<td></td>
