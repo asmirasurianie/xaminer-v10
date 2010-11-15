@@ -19,6 +19,10 @@
 		<script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 		<script type="text/javascript" src="js/tiny.js"></script>
 		<script type="text/javascript" src="js/editor.js"></script>
+        <script type="text/javascript">//<![CDATA[
+	var label_language = "de";
+//]]></script>
+
 	</head>
 
 	<body>
@@ -144,6 +148,7 @@
 		</tr>
 	</table>
 </form>
+
 <div id="loading"></div>
 
 
