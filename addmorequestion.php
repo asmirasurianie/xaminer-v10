@@ -19,7 +19,7 @@
 	    {
 			
 			//$try=tinyMCE.get('question0').getContent();
-			//echo "question".$i;
+			echo "question".$i;
 		  $ques=$_POST["question".$i.""];
 		  $mark=$_POST["marks".$i.""];
 		  $toption=$_POST["addoptionq".$i.""];

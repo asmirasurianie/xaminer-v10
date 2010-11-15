@@ -44,7 +44,7 @@ $EWRPT_XSS_ARRAY = array('javascript', 'vbscript', 'expression', '<applet', '<me
 define("EWRPT_ROOT_RELATIVE_PATH", ".", TRUE); // Relative path of app root
 define("EWRPT_DEFAULT_DATE_FORMAT", "yyyy/mm/dd", TRUE); // Default date format
 define("EWRPT_DATE_SEPARATOR", "/", TRUE); // Date separator
-define("EWRPT_RANDOM_KEY", '8eVPRbMIT43k2JRp', TRUE); // Random key for encryption
+define("EWRPT_RANDOM_KEY", 'W7gx&hu0jOqg9ou2', TRUE); // Random key for encryption
 define("EWRPT_PROJECT_STYLESHEET_FILENAME", "phprptcss/project8.css", TRUE); // Project stylesheet file name
 define("EWRPT_CHART_WIDTH", 550, TRUE);
 define("EWRPT_CHART_HEIGHT", 440, TRUE);

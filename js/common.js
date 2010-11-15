@@ -2,7 +2,7 @@
 function reloadMCE(){
 tinyMCE.init({
 		// General options
-		mode : "textareas",
+		mode : "none",
 		theme : "advanced",
 		plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
 
@@ -1403,7 +1403,9 @@ function recordClass(frm){
 	}
  
 function addquestion()
-{ //reloadMCE();
+{ 
+//alert("sd");
+//reloadMCE();
   var ni = document.getElementById('myQues');
   var numi = document.getElementById('theQuestion');
   var num = (document.getElementById('theQuestion').value -1)+ 2;
@@ -1413,7 +1415,8 @@ function addquestion()
   newdiv.setAttribute('id',divIdName);
   newdiv.innerHTML = '<fieldset><table border="0" width="100%"><tr><td colspan="2"><a id="deletequestion'+num+'" href="#" onclick=\'removeQuestion("'+divIdName+'");\'><img align="right" src="images/but_delete.gif" border="0"/></a></td></tr><tr><td colspan="2"><table width="100%" border="1"> <tr> <td width="50%"><textarea name="question'+num+'" id="question'+num+'" rows="20" cols="50"></textarea></td> <td align="center"><a href="javascript:openNewEditor(\'question'+num+'\')">Launch Equation Editor</a><br/> <br/> </td> </tr> </table><div id="rq'+num+'"></div></td></tr><tr><td>Marks&nbsp;:&nbsp;<input type="text" name="marks'+num+'" id="marks'+num+'"/></td><td><div id="rm'+num+'"></div></td></tr><tr><td><input type="hidden" value="0" id="theValue'+num+'"/><div id="myDiv'+num+'"></div><a href="javascript:addoption1('+num+');">Add Options</a></td></tr><tr><td><input type="hidden" name="questionid" id="questionid" value="'+num+'"/></td></tr></table></fieldset>';
   ni.appendChild(newdiv);
-  //reloadMCE();
+  reloadMCE();
+  tinyMCE.execCommand('mceAddControl', false, 'question'+num);
 }
 
 function removeQuestion(id)
@@ -1479,7 +1482,7 @@ function submitquescheck()
 	for(var j=0;j<=d;j++)
 		    { 
 			
-	 var q1=tinyMCE.get('question'+j).getContent();
+	 //var q1=tinyMCE.get('question'+j).getContent();
 	 //alert(q1);
 	 //var q1=$('#question'+j).val();
 			var m1=$('#marks'+j).val();

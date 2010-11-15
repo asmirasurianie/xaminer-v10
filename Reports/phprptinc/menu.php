@@ -153,9 +153,9 @@ function MenuItem_Adding(&$Item) {
 // Generate all menu items
 $RootMenu = new crMenu("RootMenu");
 $RootMenu->IsRoot = TRUE;
-$RootMenu->AddMenuItem(58, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("58", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "Report19smry.php", -1, "", "", TRUE);
-$RootMenu->AddMenuItem(59, $ReportLanguage->Phrase("ChartReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("59", "MenuText") . $ReportLanguage->Phrase("ChartReportMenuItemSuffix"), "Report19smry.php#cht_Chart1", 58, "", "", TRUE);
-$RootMenu->AddMenuItem(60, $ReportLanguage->Phrase("ChartReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("60", "MenuText") . $ReportLanguage->Phrase("ChartReportMenuItemSuffix"), "Report19smry.php#cht_Chart2", 58, "", "", TRUE);
+$RootMenu->AddMenuItem(14, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("14", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "Report1smry.php", -1, "", "", TRUE);
+$RootMenu->AddMenuItem(15, $ReportLanguage->Phrase("ChartReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("15", "MenuText") . $ReportLanguage->Phrase("ChartReportMenuItemSuffix"), "Report1smry.php#cht_Student_Col_Chart", 14, "", "", TRUE);
+$RootMenu->AddMenuItem(16, $ReportLanguage->Phrase("ChartReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("16", "MenuText") . $ReportLanguage->Phrase("ChartReportMenuItemSuffix"), "Report1smry.php#cht_Student_Pie_Chart", 14, "", "", TRUE);
 $RootMenu->Render();
 ?>
 </div>
